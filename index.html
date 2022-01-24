@@ -16,7 +16,7 @@
     <script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
     <script async custom-element="amp-base-carousel"
         src="https://cdn.ampproject.org/v0/amp-base-carousel-0.1.js"></script>
-
+    <script async custom-element="amp-script" src="https://cdn.ampproject.org/v0/amp-script-0.1.js"></script>
     <script async custom-element="amp-selector" src="https://cdn.ampproject.org/v0/amp-selector-0.1.js"></script>
     <script async custom-element="amp-accordion" src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js"></script>
 
@@ -100,7 +100,7 @@
         }
 
         #container {
-            max-width: 430px;
+            max-width: 728px;
             background: #F6F6F6;
             margin: auto;
         }
@@ -707,7 +707,7 @@
 
         .marquee {
             margin-top: 50px;
-              overflow: hidden; 
+            overflow: hidden;
         }
 
         .marquee-content {
@@ -716,7 +716,7 @@
         }
 
         .marquee-item {
-          
+
             margin: 0 10px;
             /*   flex: 0 0 20vw; */
             /*   margin: 0 2vw; */
@@ -737,6 +737,72 @@
                 transform: translatex(-250px);
             }
         }
+
+        #popup {
+            z-index: 4;
+
+            top: 0;
+            position: fixed;
+            height: 100vh;
+            background: #00000040;
+
+            /* display: none; */
+        }
+
+        .popup-wrapper {
+            max-width: 700px;
+
+            margin: 200px auto;
+
+            background-color: white;
+            padding: 30px;
+            flex-direction: column;
+
+        }
+
+        .popup-wrapper input[type="tel"] {
+            border-bottom: 1px solid;
+            font-size: 30px;
+            margin-right: 20px;
+            width: 10%;
+        }
+
+        input:focus {
+            outline: none;
+        }
+        .my-30{
+            margin-top: 30px ;
+            margin-bottom: 30px;
+        }
+        .py-20{
+        padding-top: 10px;
+        padding-bottom: 10px;
+        }
+        .px-10{
+           padding-left: 10px;
+           padding-right: 10px;
+
+        }
+        .mx-20{
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+        #popup-form input[type="tel"]{
+            border: none;
+            border-bottom: 1px solid;
+            text-align: center;
+
+        }
+        #popup button{
+            background-color: white;
+            border-radius: 6px;
+            border: 1px solid #787B7D;
+            cursor: pointer;
+        }
+
+        .brd-no{
+            border: none;
+        }
     </style>
 
 </head>
@@ -746,11 +812,49 @@
 
 <body>
 
+
+
+
     <div id="container">
 
 
 
+        <section id="popup">
+            <div>
+                <div class="  items-start popup-wrapper">
 
+
+                    <h2 class="f-36 drk-blu-txt">OTP Verification</h2>
+                    <h3 class="text-xl lg:text-2xl drk-blu-txt">please enter the OTP sent to your mobile</h3>
+
+
+
+                    <div class="my-30">
+                        <h3 class="f-20 my-30">Enter OTP</h3>
+                        <amp-script script="popup" layout="container" >
+                            <form id="popup-form" >
+                                <input type="tel" maxlength="1" id="digit-1" name="digit1" />
+                                <input type="tel" maxlength="1" id="digit-2" name="digit2" />
+                                <input type="tel" maxlength="1" id="digit-3" name="digit3" />
+                                <input type="tel" maxlength="1" id="digit-4" name="digit4" />
+                        </div>
+                        <div class="flex my-30">
+    
+                            <button class=" button f-s-14 py-20 px-10 ">Resend OTP</button>
+    
+    
+                            <input style="border-radius: 6px;"  type="submit" value="Done" class=" brd-no mx-20 py-20 px-10 f-s-18 blue-bg" />
+                        </div>
+                        </form>
+    
+                          </amp-script>
+           
+                          <script id="popup" type="text/plain" target="amp-script">
+                          
+                          </script>
+                </div>
+            </div>
+        </section>
         <header>
             <nav>
                 <div class="logo-wrapper">
@@ -1897,7 +2001,7 @@
 
             <div class="marquee">
                 <div class="marquee-content">
-                
+
 
 
 
