@@ -231,7 +231,7 @@
 				font-size: 14px;
 				line-height: 20px;
 			}
-            .f-s-10 {
+			.f-s-10 {
 				font-size: 10px;
 				line-height: 12px;
 			}
@@ -325,8 +325,7 @@
 				margin: auto;
 				display: flex;
 				flex-direction: column;
-                max-width: 450px;
-
+				max-width: 450px;
 			}
 
 			#form input {
@@ -524,10 +523,10 @@
 			#FAQ {
 				background: #fff5e7;
 			}
-            #FAQ div{
-                max-width: 500px;
-                margin: auto;
-            }
+			#FAQ div {
+				max-width: 500px;
+				margin: auto;
+			}
 			#FAQ div > div {
 				padding: 10px 20px;
 				background-color: #28b1da;
@@ -756,11 +755,106 @@
 					transform: translatex(-250px);
 				}
 			}
+			#popup {
+				z-index: 4;
+
+				top: 0;
+				position: fixed;
+				height: 100vh;
+				background: #00000040;
+
+				/* display: none; */
+			}
+
+			.popup-wrapper {
+				max-width: 700px;
+
+				margin: 200px auto;
+
+				background-color: white;
+				padding: 30px;
+				flex-direction: column;
+			}
+
+			.popup-wrapper input[type="tel"] {
+				border-bottom: 1px solid;
+				font-size: 30px;
+				margin-right: 20px;
+				width: 10%;
+			}
+
+			input:focus {
+				outline: none;
+			}
+			.my-30 {
+				margin-top: 30px;
+				margin-bottom: 30px;
+			}
+			.py-20 {
+				padding-top: 10px;
+				padding-bottom: 10px;
+			}
+			.px-10 {
+				padding-left: 10px;
+				padding-right: 10px;
+			}
+			.mx-20 {
+				margin-left: 20px;
+				margin-right: 20px;
+			}
+			#popup-form input[type="tel"] {
+				border: none;
+				border-bottom: 1px solid;
+				text-align: center;
+			}
+			#popup button {
+				background-color: white;
+				border-radius: 6px;
+				border: 1px solid #787b7d;
+				cursor: pointer;
+			}
+
+			.brd-no {
+				border: none;
+			}
 		</style>
 	</head>
 
 	<body>
 		<div id="container">
+			<section id="popup">
+				<div>
+					<div class="items-start popup-wrapper">
+						<h2 class="f-36 drk-blu-txt">OTP Verification</h2>
+						<h3 class="text-xl lg:text-2xl drk-blu-txt">
+							please enter the OTP sent to your mobile
+						</h3>
+
+						<div class="my-30">
+							<h3 class="f-20 my-30">Enter OTP</h3>
+							<amp-script script="popup" layout="container">
+								<form id="popup-form">
+									<input type="tel" maxlength="1" id="digit-1" name="digit1" />
+									<input type="tel" maxlength="1" id="digit-2" name="digit2" />
+									<input type="tel" maxlength="1" id="digit-3" name="digit3" />
+									<input type="tel" maxlength="1" id="digit-4" name="digit4" />
+								</form>
+							</amp-script>
+						</div>
+						<div class="flex my-30">
+							<button class="button f-s-14 py-20 px-10">Resend OTP</button>
+							<input
+								style="border-radius: 6px"
+								type="submit"
+								value="Done"
+								class="brd-no mx-20 py-20 px-10 f-s-18 blue-bg"
+							/>
+						</div>
+
+						<script id="popup" type="text/plain" target="amp-script"></script>
+					</div>
+				</div>
+			</section>
 			<header>
 				<nav>
 					<div class="logo-wrapper">
@@ -969,7 +1063,7 @@
 											>
 										</div>
 									</div>
-									<div style="position: relative; width: 415px; top: 272px;margin-left: auto;">
+									<div style="position: relative; width: 415px; top: 272px; margin-left: auto">
 										<amp-img
 											src="./assest/d.svg"
 											width="1.5"
