@@ -763,7 +763,7 @@
 				height: 100vh;
 				background: #00000040;
 
-				/* display: none; */
+				display: none;
 			}
 
 			.popup-wrapper {
@@ -2307,7 +2307,7 @@
 				<h1 class="center-txt drk-blu-txt">FAQs</h1>
 
 				<div>
-					<amp-accordion id="my-accordion">
+					<amp-accordion disable-session-states id="prop-accordion" class="prop-accordion">
 						<section>
 							<h2 class="amp-accordion__header">
 								<div class="flex" style="justify-content: space-between; padding: 6px">
@@ -2453,10 +2453,96 @@
 								</ul>
 							</div>
 						</section>
-					</amp-accordion>
 
-					<div style="text-align: center" class="button blue-bg">
-						VIEW ALL
+					</amp-accordion>
+                   
+
+
+<article  id="hide-accordion">
+    <amp-accordion disable-session-states id="prop-accordion2" class="prop-accordion">
+        <section>
+            <h2 class="amp-accordion__header">
+                <div class="flex" style="justify-content: space-between; padding: 6px">
+                    <h4 class="f-s-14 f-w-500 f-s-1 gray-txt">What are the complications of type 2 diabetes?</h4>
+                    <span>
+                        <amp-img
+                            style="width: 15px"
+                            src="./assest/Arrow.svg"
+                            width="1"
+                            height="1"
+                            layout="responsive"
+                            alt="logo"
+                        >
+                        </amp-img>
+                    </span>
+                </div>
+            </h2>
+            <div style="padding: 15px 0px" class="f-s-14 f-w-400 gray-txt">
+                <h4>Type 2 diabetes increases the risk of developing several medical complications. These can include:</h4>
+                <ul>
+                    1). Heart and blood vessel problems
+                </ul>
+                <ul>
+                    2). Nerve damage (neuropathy)
+                </ul>
+                <ul>
+                    3).  Kidney damage (nephropathy)
+                </ul>
+                <ul>
+                    4). Eye damage (retinopathy)
+                </ul>
+                <ul>
+                    5).Foot damage and amputation
+                </ul>
+                <ul>
+                    6).Depression or diabetes distress
+                </ul>
+            </div>
+        </section>
+        <section>
+            <h2 class="amp-accordion__header">
+                <div class="flex" style="justify-content: space-between; padding: 6px">
+                    <h4 class="f-s-14 f-w-500 f-s-1 gray-txt">
+                        What are the benefits of the program?
+                    </h4>
+                    <span>
+                        <amp-img
+                            style="width: 15px"
+                            src="./assest/Arrow.svg"
+                            width="1"
+                            height="1"
+                            layout="responsive"
+                            alt="logo"
+                        >
+                        </amp-img>
+                    </span>
+                </div>
+            </h2>
+            <div style="padding: 15px 0px" class="f-s-14 f-w-400 gray-txt">
+                <h4> Type 2 diabetes symptoms and signs usually appear gradually. In fact, you could have type 2 diabetes for years without realising it. When there are signs and symptoms, they may include:/h4>
+                <ul>
+                    1). Reduction in acidity, pains, digestion problems, feeling lighter
+                </ul>
+                <ul>
+                    2). Drop in weight
+                </ul>
+                <ul>
+                    3). Raised energy levels
+                </ul>
+                <ul>
+                    4). Improvement in stamina, flexibility and strength
+                </ul>
+                <ul>
+                    5). Drop in sugar levels and/ or drop in medications (for diabetics)
+                </ul>
+            </div>
+        </section>
+
+    </amp-accordion>
+
+</article>
+					<div  on="tap:hide-accordion.hide"  style="text-align: center" class="button blue-bg white ">
+					View
 						<span
 							style="
 								margin-left: 5px;
@@ -2469,6 +2555,13 @@
 							"
 						></span>
 					</div>
+
+
+
+
+
+
+                    
 				</div>
 			</section>
 

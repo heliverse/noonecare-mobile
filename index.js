@@ -8,5 +8,6 @@ $(document).ready(function() {
         arrows: false,
       });
    
-  });
-  document.getElementsByName
+  })
+  var btn =0
+  btn.addEventListner
