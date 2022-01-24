@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>One Care</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./styles.css" />
+
+
+
+
+
+
+
+    <style>
+        .bg-drk-blu {
+            background: #14566A;
+
+        }
+
+        .bg-pink-shd {
+            background: linear-gradient(180deg, #FFAFC6 -4.33%, #FFEFD4 109.25%),
+                linear-gradient(177.97deg, #A3E5FF 1.72%, #FFF1F1 98.52%);
+
+        }
+
+        .bg-blue-shd {
+            background: linear-gradient(177.97deg, #A3E5FF 1.72%, #FFF1F1 98.52%);
+
+        }
+
+        .pink-txt {
+            color: #F1647B;
+
+        }
+
+        .blue-txt {
+            color: #4E84C1;
+        }
+
+        .orange-txt {
+            color: #F07162;
+
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="container mx-auto">
+            <div class="flex items-center">
+                <div id="logo mr-3">
+                    <img src="./assets/logo.svg" alt="onecare-logo" />
+                </div>
+                <div class="logo-text ml-3">
+                    <p>A CHAIN OF SMART</p>
+                    <p>DIABETES CLINICS</p>
+                </div>
+            </div>
+            <div class="contact"></div>
+        </div>
+    </nav>
+    <main>
+        <section id="hero"></section>
+        <section id="form" class="bg-red-50">
+            <div class="container flex mx-auto py-10">
+                <div class="container">
+                    <h2 class=" font-bold text-3xl text-red-400 my-5">We know diabetes is a <br /> life-altering
+                        diagnosis.</h2>
+                    <p>
+                        Our Comprehensive Clinical Care consists of 1-1 <br />in-depth doctor consultation, expert
+                        dietitian sessions, <br />and most importantly, a structured roadmap for your <br />diabetes
+                        care.
+                        <br /><br />
+                        Visit your local OneCare clinic and let's fight it together.
+                    </p>
+                </div>
+                <div class="container ">
+
+                    <h2 class=" font-bold text-3xl my-5">Start your<span class="text-red-400"> personalised diabetic
+                            <br /> program today!</span></h2>
+                    <form id="form" method="post" action-xhr="https://onecare.co.in/wp-json/api/v1/lead" target="_top">
+
+                        <input class=" px-8 py-2 border-solid border rounded" type="text" name="name"
+                            placeholder="Full Name" required>
+                        <br />
+                        <input class=" my-5 px-8 py-2 border-solid border rounded" type="tel" name="phone"
+                            placeholder="Phone" pattern="[0-9]{10}" maxlength="10"
+                            title="Please enter a valid phone number" required>
+
+                        <div class="flex ">
+                            <div class="flex items-center mr-10">
+                                <input class="mr-2" type="checkbox" id="Online" name="Consultation" value="Online"
+                                    checked>
+                                <label for="Online">Online Consultation</label>
+                            </div>
+
+                            <div class="flex items-center">
+                                <input class="mr-2 " type="checkbox" id="Clinical" name="Consultation" value="Clinical">
+                                <label for="Clinical">Clinical Consultation</label>
+                            </div>
+
+                        </div>
+
+
+                        <input class="px-10 mt-5 bg-cyan-500 py-2 text-white rounded-3xl" type="submit" value="SUBMIT">
+
+
+                    </form>
+
+
+
+
+
+                    </form>
+
+                </div>
+            </div>
+
+        </section>
+        <section class="py-20 bg-drk-blu">
+
+
+
+
+            <div class="container flex flex-row  justify-center  mx-auto">
+
+
+
+                <div class="container flex  flex-col items-center text-center max-w-xs">
+                    <img src="./assest/Trust.webp" alt="">
+                    <p class=" my-5 text-white"> Personalised Diabetes Care <br />program designed 'Just for<br /> you'
+                    </p>
+                </div>
+                <div class="container flex flex-col items-center text-center">
+                    <img src="./assest/People.webp" alt="">
+                    <p class=" my-5 text-white">A panel of expert<br /> for all your needs</p>
+                </div>
+                <div class="container flex flex-col items-center text-center"> <img
+                        src="./assest/Medical_Mobile_App.webp" alt="">
+                    <p class=" my-5 text-white">State-of-the-art Health Tracking<br /> App customised for you</p>
+                </div>
+                <div class="container flex flex-col items-center text-center"> <img src="./assest/Medical_Doctor.webp"
+                        alt="">
+                    <p class=" my-5 text-white">Dedicated Health Coach for <br /> day to day guidance</p>
+                </div>
+
+            </div>
+        </section>
+        <section id="manage" class="py-10 ">
+            <h2 class=" text-center font-bold text-3xl my-5">Manage your diabetes in 3 easy steps</h2>
+
+
+
+
+
+            <div class="container flex justify-center flex-row py-10 mx-auto">
+
+
+
+
+
+                <div class="container flex flex-col item-center p-10 mx-10 bg-blue-shd">
+                    <img src="./assest/manage1.svg" alt="">
+
+                    <h4 class="text-center blue-txt">Step 1</h4>
+                    <p class="text-center">Meet your team of expert diabetologists, health counsellors, dieticians at
+                        OneCare Smart Clinics
+                        & get expert diagnosis & insights on your diabetes management.</p>
+                </div>
+
+                <div class="container flex flex-col item-center  p-10 mx-10 bg-pink-shd">
+                    <img src="./assest/manage2.svg" alt="">
+
+                    <h4 class="text-center blue-txt">Step 2</h4>
+                    <p class="text-center">Get started on a personalised diabetes management journey designed around
+                        your needs to help you realise 10x better outcomes.</p>
+                </div>
+                <div class="container flex flex-col item-center  p-10 mx-10 bg-blue-shd">
+                    <img src="./assest/manage3.svg" alt="">
+
+                    <h4 class="blue-txt text-center">Step 3</h4>
+                    <p class="text-center">Our panel of dedicated Health Coach will be with you every step of the way
+                        guiding you towards a better life beyond diabetes </p>
+                </div>
+            </div>
+
+
+
+
+
+
+        </section>
+
+
+
+
+
+
+        <section id=" Diabetologists" class="py-20 bg-blue-shd">
+            <h2 class="text-center font-bold text-3xl my-5">Consult with our Expert team of <br />
+                Endocrinologists & Diabetologists <span class="orange-txt">in Bangalore</span> </h2>
+            <div class="container mx-auto flex items-center ">
+
+
+
+
+                <div class=" container items-center flex m-10 border-2 border-white rounded-3xl">
+                    <div>
+                        <img src="./assest/doc1.svg" alt="">
+                    </div>
+
+                    <div class="flex flex-col ml-5">
+                        <h3> Dr. Basavaraj GS </h3>
+                        <h4>MBBS, MD, DM (Endocrinology)</h4>
+                        <p class="my-2 pink-txt">13+ years of experience <br />Associated with Narayana Hrudayalaya</p>
+                        <div class="flex items-center"><img src="./assest/Thumbs Up.webp" alt="">
+                            <p class="ml-3">98% Approval on Practo</p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="container flex items-center m-10 border-2 border-white rounded-3xl">
+                    <div>
+                        <img src="./assest/doc2.svg" alt="">
+                    </div>
+
+                    <div class="ml-5 ">
+                        <h3>Dr. C Siva Rama Krishna </h3>
+                        <h4>MD, M.H. Sc. (Diabetology)</h4>
+                        <p class="pink-txt my-2"> 10+ years of experience </p>
+                        <div class="flex items-center"><img src="./assest/Thumbs Up.webp" alt="">
+                            <p class="ml-3"> 92% Approval on Practo</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="container flex m-10 items-center border-2 border-white rounded-3xl ">
+                    <div>
+                        <img src="./assest/doc3.svg" alt="">
+                    </div>
+
+                    <div class="ml-5">
+                        <h3>Dr. Lavanya</h3>
+                        <h4> MBBS (Diabetology)</h4>
+                        <p class="pink-txt my-2"> 17+ years of experience <br />Associated with Apollo Hospitals</p>
+                        <div class="flex items-center"><img src="./assest/Thumbs Up.webp" alt="">
+                            <p class="ml-3">98% Approval on Practo</p>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+            </div>
+
+
+        </section>
+
+
+
+
+
+
+
+
+
+
+        <section id="visit" class="py-20 ">
+
+<h2 class="blue-txt font-bold text-3xl my-5">Visit OneCare at</h2>
+
+
+
+<div class="container  mx-auto flex ">
+
+
+<div>
+
+
+
+
+    <div>
+        <div><h3>3 Locations</h3></div>
+    </div>
+<div>
+<div>
+
+    <h3></h3>
+</div>
+
+
+
+
+
+    <div>
+        <img src="./assest/" alt="">
+    </div>
+</div>
+
+
+
+
+</div>
+
+
+
+
+
+<div id="map-wrapper">
+
+    <img src="./assest/map2.svg" alt="">
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+        </section>
+
+    </main>
+    <footer></footer>
+</body>
+
+</html>
