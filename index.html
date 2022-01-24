@@ -7,8 +7,13 @@
 		<link rel="canonical" href="https://onecare.co.in" />
 		<meta
 			name="amp-script-src"
-			content="sha384-AGfIK3xyyrcRWR-yI0HPk91gLZag7-SfA97XEQPAr6URvgIR5UqO5YALuid0V-7t"
+			content="sha384-8lnW1YiGDcUR9QY_i8kH909mWXM1I49H0X255KzdCkaErHkd5tIAWVDbe4F8g54k"
 		/>
+		<script
+			async
+			custom-element="amp-script"
+			src="https://cdn.ampproject.org/v0/amp-script-0.1.js"
+		></script>
 		<link
 			rel="preconnect"
 			href="https://amp.dev/documentation/guides-and-tutorials/start/create/basic_markup/"
@@ -44,7 +49,11 @@
 			custom-element="amp-accordion"
 			src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js"
 		></script>
-
+		<script
+			async
+			custom-element="amp-bind"
+			src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"
+		></script>
 		<style amp-boilerplate>
 			body {
 				-webkit-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
@@ -762,8 +771,6 @@
 				position: fixed;
 				height: 100vh;
 				background: #00000040;
-
-				/* display: none; */
 			}
 
 			.popup-wrapper {
@@ -817,50 +824,38 @@
 			.brd-no {
 				border: none;
 			}
+			.hide {
+				display: none;
+			}
+			.show {
+				display: block;
+			}
 		</style>
 	</head>
 
 	<body>
+		<amp-state id="oneCareForm">
+			<script type="application/json">
+				{
+					"name": "",
+					"phone": "",
+					"errors": { "name": "", "phone": "", "consultation": "" },
+					"consultation": "online",
+					"validated": "false",
+				                "otpA":""
+				                "otpB":""
+				                "otpC":""
+				                "otpD":""
+				}
+			</script>
+		</amp-state>
 		<div id="container">
-			<section id="popup">
-				<div>
-					<div class="items-start popup-wrapper">
-						<h2 class="f-36 drk-blu-txt">OTP Verification</h2>
-						<h3 class="text-xl lg:text-2xl drk-blu-txt">
-							please enter the OTP sent to your mobile
-						</h3>
-
-						<div class="my-30">
-							<h3 class="f-20 my-30">Enter OTP</h3>
-							<amp-script script="popup" layout="container">
-								<form id="popup-form">
-									<input type="tel" maxlength="1" id="digit-1" name="digit1" />
-									<input type="tel" maxlength="1" id="digit-2" name="digit2" />
-									<input type="tel" maxlength="1" id="digit-3" name="digit3" />
-									<input type="tel" maxlength="1" id="digit-4" name="digit4" />
-								</form>
-							</amp-script>
-						</div>
-						<div class="flex my-30">
-							<button class="button f-s-14 py-20 px-10">Resend OTP</button>
-							<input
-								style="border-radius: 6px"
-								type="submit"
-								value="Done"
-								class="brd-no mx-20 py-20 px-10 f-s-18 blue-bg"
-							/>
-						</div>
-
-						<script id="popup" type="text/plain" target="amp-script"></script>
-					</div>
-				</div>
-			</section>
 			<header>
 				<nav>
 					<div class="logo-wrapper">
 						<a href="index.html" class="logo">
 							<amp-img
-								src="./assest/logo.svg"
+								src="https://onecare.co.in/wp-content/uploads/2022/01/logo.svg"
 								width="3.2"
 								height="1"
 								layout="responsive"
@@ -892,8 +887,18 @@
 						on="slideChange: SelectorID.toggle(index=event.index,value=true)"
 					>
 						<div class="slide-wrapper">
-							<div class="slide-wrapper2" style="background-image: url('./assest/cirl2-pink.svg')">
-								<div class="slide" style="background-image: url('./assest/circle.svg')">
+							<div
+								class="slide-wrapper2"
+								style="
+									background-image: url('	https://onecare.co.in/wp-content/uploads/2022/01/cirl2-pink.svg');
+								"
+							>
+								<div
+									class="slide"
+									style="
+										background-image: url('	https://onecare.co.in/wp-content/uploads/2022/01/circle.svg');
+									"
+								>
 									<div style="z-index: 2">
 										<h1 class="f-w-700 f-s-30">
 											Anup Khees<br />
@@ -903,7 +908,7 @@
 											<div class="flex" style="margin-right: 15px">
 												<amp-img
 													style="width: 20px"
-													src="./assest/Rh+.svg"
+													src="https://onecare.co.in/wp-content/uploads/2022/01/Rh+.svg"
 													width="1"
 													height="1"
 													layout="responsive"
@@ -916,7 +921,7 @@
 											<div class="flex">
 												<amp-img
 													style="width: 20px"
-													src="./assest/oill.svg"
+													src="https://onecare.co.in/wp-content/uploads/2022/01/oill.svg"
 													width="1"
 													height="1"
 													layout="responsive"
@@ -943,7 +948,7 @@
 									</div>
 									<div style="width: 500px; position: relative; top: 180px; margin-left: auto">
 										<amp-img
-											src="./assest/1_HEoLBLidT2u4mhJ0oiDgig 2.svg"
+											src="https://onecare.co.in/wp-content/uploads/2022/01/1_HEoLBLidT2u4mhJ0oiDgig 2.svg"
 											width="3"
 											height="2.7"
 											layout="responsive"
@@ -955,8 +960,18 @@
 							</div>
 						</div>
 						<div class="slide-wrapper">
-							<div class="slide-wrapper2" style="background-image: url('./assest/cir2-blu.svg')">
-								<div class="slide" style="background-image: url('./assest/circle-blu.svg')">
+							<div
+								class="slide-wrapper2"
+								style="
+									background-image: url('	https://onecare.co.in/wp-content/uploads/2022/01/cir2-blu.svg');
+								"
+							>
+								<div
+									class="slide"
+									style="
+										background-image: url('	https://onecare.co.in/wp-content/uploads/2022/01/circle-blu.svg');
+									"
+								>
 									<div style="z-index: 2">
 										<h1 class="f-s-30 f-w-700 pink-txt">
 											Live A Life Beyond Diabetes,<br />
@@ -989,7 +1004,7 @@
 										"
 									>
 										<amp-img
-											src="./assest/istockphoto-1192489366-612x612 1.svg"
+											src="https://onecare.co.in/wp-content/uploads/2022/01/istockphoto-1192489366-612x612 1.svg"
 											width="1.5"
 											height="1"
 											layout="responsive"
@@ -1001,8 +1016,18 @@
 							</div>
 						</div>
 						<div class="slide-wrapper">
-							<div class="slide-wrapper2" style="background-image: url('./assest/cirl2-pink.svg')">
-								<div class="slide" style="background-image: url('./assest/circle.svg')">
+							<div
+								class="slide-wrapper2"
+								style="
+									background-image: url('	https://onecare.co.in/wp-content/uploads/2022/01/cirl2-pink.svg');
+								"
+							>
+								<div
+									class="slide"
+									style="
+										background-image: url('	https://onecare.co.in/wp-content/uploads/2022/01/circle.svg');
+									"
+								>
 									<div style="z-index: 2">
 										<h1 class="f-s-30 f-w-700;">
 											Don't Just Fight Diabetes,<br />
@@ -1033,7 +1058,7 @@
 										"
 									>
 										<amp-img
-											src="./assest/slack-imgs-1 1.svg"
+											src="https://onecare.co.in/wp-content/uploads/2022/01/slack-imgs-1 1.svg"
 											width="1.5"
 											height="1.3"
 											layout="responsive"
@@ -1045,8 +1070,18 @@
 							</div>
 						</div>
 						<div class="slide-wrapper">
-							<div class="slide-wrapper2" style="background-image: url('./assest/cir2-blu.svg')">
-								<div class="slide" style="background-image: url('./assest/circle-blu.svg')">
+							<div
+								class="slide-wrapper2"
+								style="
+									background-image: url('	https://onecare.co.in/wp-content/uploads/2022/01/cir2-blu.svg');
+								"
+							>
+								<div
+									class="slide"
+									style="
+										background-image: url('	https://onecare.co.in/wp-content/uploads/2022/01/circle-blu.svg');
+									"
+								>
 									<div>
 										<h1 class="f-s-30 f-w-700 pink-txt">Skip The Travel</h1>
 
@@ -1065,7 +1100,7 @@
 									</div>
 									<div style="position: relative; width: 415px; top: 272px; margin-left: auto">
 										<amp-img
-											src="./assest/d.svg"
+											src="https://onecare.co.in/wp-content/uploads/2022/01/d.svg"
 											width="1.5"
 											height="1.3"
 											layout="responsive"
@@ -1095,50 +1130,301 @@
 				<h1 class="f-w-700 f-s-24 center-txt">
 					Start your <span class="orange-txt"> personalised <br />diabetic program today!</span>
 				</h1>
+				<amp-script script="myscript" layout="container">
+					<div [text]="oneCareForm.validated"></div>
+					<section
+						id="popup"
+						class="hide"
+						[class]="oneCareForm.validated == true ? 'show' : 'hide'"
+					>
+						<div>
+							<div class="items-start popup-wrapper">
+								<h2 class="f-36 drk-blu-txt">OTP Verification</h2>
+								<h3 class="text-xl lg:text-2xl drk-blu-txt">
+									please enter the OTP sent to your mobile
+								</h3>
 
-				<form
-					id="form"
-					method="post"
-					action-xhr="https://onecare.co.in/wp-json/api/v1/lead"
-					target="_top"
-				>
-					<input type="text" name="name" placeholder="Full Name" required />
+								<div class="my-30">
+									<h3 class="f-20 my-30">Enter OTP</h3>
+									<!-- <amp-script script="popup" layout="container"> -->
+									<form id="popup-form" method="post" action-xhr="#" target="_top">
+										<input
+											type="tel"
+											on="input-debounced:AMP.setState({
+                        oneCareForm:{
+                            otpA: event.value,
+                            errors:{otp: ''}
+                        }
+                    })"
+											maxlength="1"
+											id="digit-1"
+											name="digit1"
+										/>
+										<input
+											type="tel"
+											on="input-debounced:AMP.setState({
+                        oneCareForm:{
+                            otpB: event.value,
+                            errors:{otp: ''}
+                        }
+                    })"
+											maxlength="1"
+											id="digit-2"
+											name="digit2"
+										/>
+										<input
+											type="tel"
+											on="input-debounced:AMP.setState({
+                        oneCareForm:{
+                            otpC: event.value,
+                            errors:{otp: ''}
+                        }
+                    })"
+											maxlength="1"
+											id="digit-3"
+											name="digit3"
+										/>
+										<input
+											type="tel"
+											on="input-debounced:AMP.setState({
+                        oneCareForm:{
+                            otpD: event.value,
+                            errors:{otp: ''}
+                        }
+                    })"
+											maxlength="1"
+											id="digit-4"
+											name="digit4"
+										/>
+									</form>
+									<!-- </amp-script> -->
+								</div>
+								<div class="flex my-30">
+									<button class="button f-s-14 py-20 px-10" id="resend">Resend OTP</button>
+									<input
+										id="submit-otp"
+										style="border-radius: 6px"
+										type="submit"
+										value="Done"
+										class="brd-no mx-20 py-20 px-10 f-s-18 blue-bg"
+									/>
+								</div>
 
-					<input
-						type="tel"
-						name="phone"
-						placeholder="Phone"
-						pattern="[0-9]{10}"
-						maxlength="10"
-						title="Please enter a valid phone number"
-						required
-					/>
+								<script id="popup" type="text/plain" target="amp-script"></script>
+							</div>
+						</div>
+					</section>
 
-					<div style="display: flex; justify-content: space-between">
-						<div style="display: flex; align-items: center">
-							<input type="radio" id="Online" name="Consultation" value="Online" checked />
-							<label style="font-size: 12px" for="Online">Online Consultation</label>
+					<form id="form" method="post" action-xhr="#" target="_top">
+						<input
+							type="text"
+							name="name"
+							on="input-debounced:AMP.setState({
+                        oneCareForm:{
+                            name: event.value,
+                            errors:{name: ''}
+                        }
+                    })"
+							placeholder="Full Name"
+							required
+						/>
+
+						<input
+							type="tel"
+							name="phone"
+							on="input-debounced:AMP.setState({
+							oneCareForm:{
+								phone: event.value,
+								errors:{phone: ''}}
+						})"
+							placeholder="Phone"
+							pattern="[0-9]{10}"
+							maxlength="10"
+							title="Please enter a valid phone number"
+							required
+						/>
+
+						<div style="display: flex; justify-content: space-between">
+							<div style="display: flex; align-items: center">
+								<input
+									type="radio"
+									id="Online"
+									on="input-debounced:AMP.setState({
+                                oneCareForm:{
+                                    consultation: event.value,
+                                    errors:{consultation: ''}}
+                            })"
+									name="Consultation"
+									value="Online"
+									checked
+								/>
+								<label style="font-size: 12px" for="Online">Online Consultation</label>
+							</div>
+
+							<div style="display: flex; align-items: center">
+								<input
+									type="radio"
+									id="Clinical"
+									on="input-debounced:AMP.setState({
+                                oneCareForm:{
+                                    consultation: event.value,
+                                    errors:{consultation: ''}}
+                            })"
+									name="Consultation"
+									value="Clinical"
+								/>
+								<label style="font-size: 12px" for="Clinical">Clinical Consultation</label>
+							</div>
 						</div>
 
-						<div style="display: flex; align-items: center">
-							<input type="radio" id="Clinical" name="Consultation" value="Clinical" />
-							<label style="font-size: 12px" for="Clinical">Clinical Consultation</label>
-						</div>
-					</div>
+						<!-- Add [target="amp-script"] to the <script> element. -->
 
-					<!-- Add [target="amp-script"] to the <script> element. -->
+						<input class="blue-bg button" id="submit-button" value="SUBMIT" type="submit" />
+					</form>
+				</amp-script>
+				<script id="myscript" type="text/plain" target="amp-script">
+					               console.log("hi");
+					function phoneNumberCheck(phoneNumber)
+					{
+					    return true;
+					}
 
-					<input class="blue-bg button" type="submit" value="SUBMIT" />
-					<div submitting style="position: absolute; background-color: gray">
-						<template type="amp-mustache"> </template>
-					</div>
-					<div submit-success>
-						<template type="amp-mustache"> Subscription successful! </template>
-					</div>
-					<div submit-error>
-						<template type="amp-mustache"> Subscription failed! </template>
-					</div>
-				</form>
+					let btn = document.querySelector("#submit-button");
+					let resendBtn = document.querySelector("#resend");
+					let verifyOtp = document.querySelector("#submit-otp");
+					let popup = document.querySelector("#popup");
+
+					               let sendOtp =    async () => {
+					    console.log("clickeddddddddd");
+					    let name = await AMP.getState("oneCareForm.name");
+					    let phone = await AMP.getState("oneCareForm.phone");
+					    let consultation = await AMP.getState("oneCareForm.consultation");
+					    let utm_campaign = await AMP.getState("oneCareForm.utm_campaign");
+					    let utm_source = await AMP.getState("oneCareForm.utm_source");
+					    let utm_medium = await AMP.getState("oneCareForm.utm_medium");
+					    let myerrors = await AMP.getState("oneCareForm.errors");
+					                   console.log({name,phone,consultation})
+					    let errors = {
+					        name:"",
+					        phone:"",
+					    }
+					    let validated= true;
+					    if(!name)
+					    {
+					        errors.name="Invalid Name!";
+					        validated= false;
+					    }
+					    if(!phone)
+					    {
+					        errors.phone="Invalid Phone!";
+					        validated= false;
+					    }
+					    AMP.setState({
+					        oneCareForm: {
+					            validated,
+					            errors
+					        }
+					    });
+
+					    console.log({name,phone,validated,myerrors})
+					    if (validated) {
+					        fetch("https://onecare.co.in/wp-json/api/v1/send-otp", {
+					                method: "POST",
+					                mode: "cors", // no-cors, *cors, same-origin
+					                cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+					                headers: {
+					                    "Content-Type": "application/json",
+					                },
+					                redirect: "follow", // manual, *follow, error
+					                referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+					                body: JSON.stringify({phone}), // body data type must match "Content-Type" header
+					            })
+					            .then((response) => response.json())
+					                               .then((data) => {
+					                console.log("Success!")
+					                               console.log({data})
+					            })
+					    } else {
+					        AMP.setState({oneCareForm:{errors,validated:false}});
+					    }
+					};
+
+
+
+					btn.addEventListener("click",sendOtp );
+					resendBtn.addEventListener("click",sendOtp );
+
+
+
+
+					verifyOtp.addEventListener("click", async () => {
+
+					    let name = await AMP.getState("oneCareForm.name");
+					    let phone = await AMP.getState("oneCareForm.phone");
+					    let consultation = await AMP.getState("oneCareForm.consultation");
+					    let otpA = await AMP.getState("oneCareForm.otpA");
+					    let otpB = await AMP.getState("oneCareForm.otpB");
+					    let otpC = await AMP.getState("oneCareForm.otpC");
+					    let otpD = await AMP.getState("oneCareForm.otpD");
+					                   let otp = otpA+''+otpB+''+otpC+''+otpD;
+					    let utm_campaign = await AMP.getState("oneCareForm.utm_campaign");
+					    let utm_source = await AMP.getState("oneCareForm.utm_source");
+					    let utm_medium = await AMP.getState("oneCareForm.utm_medium");
+					    let myerrors = await AMP.getState("oneCareForm.errors");
+					    let errors = {
+					        name:"",
+					        phone:"",
+					    }
+					    let validated= true;
+					    if(!name)
+					    {
+					        errors.name="Invalid Name!";
+					        validated= false;
+					    }
+					    if(!phone)
+					    {
+					        errors.phone="Invalid Phone!";
+					        validated= false;
+					    }
+					    AMP.setState({
+					        oneCareForm: {
+					            validated,
+					            errors
+					        }
+					    });
+
+					    console.log({name,phone,validated,myerrors,otp})
+					    if (validated) {
+					        fetch("https://onecare.co.in/wp-json/api/v1/veirfy-otp", {
+					                method: "POST",
+					                mode: "cors", // no-cors, *cors, same-origin
+					                cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+					                headers: {
+					                    "Content-Type": "application/json",
+					                },
+					                redirect: "follow", // manual, *follow, error
+					                referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+					                body: JSON.stringify({
+					                                   phone,
+					                                   name,
+					                                   consultation,
+					                                   otp,
+					                                   utm_campaign,
+					                                   utm_medium,
+					                                   utm_source
+					                               }), // body data type must match "Content-Type" header
+					            })
+					            .then((response) => response.json())
+					                           .then((data) => {
+					                console.log("Success!")
+					                               console.log({data})
+					            })
+									    } else {
+					                           AMP.setState({oneCareForm:{errors,validated:false}});
+					    }
+					}
+					               );
+				</script>
 			</section>
 			<section style="background-color: white; padding: 10px" id="manage">
 				<h2 class="f-s-24 f-w-700 center-txt orange-txt">
@@ -1149,7 +1435,7 @@
 					<div>
 						<div class="manage-img-wrapper">
 							<amp-img
-								src="./assest/manage1.svg"
+								src="https://onecare.co.in/wp-content/uploads/2022/01/manage1.svg"
 								width="2"
 								height="1"
 								layout="responsive"
@@ -1171,7 +1457,7 @@
 					<div>
 						<div class="manage-img-wrapper">
 							<amp-img
-								src="./assest/manage2.svg"
+								src="https://onecare.co.in/wp-content/uploads/2022/01/manage2.svg"
 								width="2"
 								height="1"
 								layout="responsive"
@@ -1192,7 +1478,7 @@
 					<div>
 						<div class="manage-img-wrapper">
 							<amp-img
-								src="./assest/manage3.svg"
+								src="https://onecare.co.in/wp-content/uploads/2022/01/manage3.svg"
 								width="2"
 								height="1"
 								layout="responsive"
@@ -1220,7 +1506,7 @@
 					<div>
 						<div class="Diabetologists-img-wrapper">
 							<amp-img
-								src="./assest/doc1.svg"
+								src="https://onecare.co.in/wp-content/uploads/2022/01/doc1.svg"
 								width="1"
 								height="1"
 								layout="responsive"
@@ -1245,7 +1531,7 @@
 							<div class="flex">
 								<div style="width: 6%; margin-right: 5px">
 									<amp-img
-										src="./assest/Thumbs Up.webp"
+										src="https://onecare.co.in/wp-content/uploads/2022/01/Thumbs Up.webp"
 										width="1"
 										height="1"
 										layout="responsive"
@@ -1261,7 +1547,7 @@
 					<div>
 						<div class="Diabetologists-img-wrapper">
 							<amp-img
-								src="./assest/doc2.svg"
+								src="https://onecare.co.in/wp-content/uploads/2022/01/doc2.svg"
 								width="1"
 								height="1"
 								layout="responsive"
@@ -1283,7 +1569,7 @@
 							<div class="flex">
 								<div style="width: 6%; margin-right: 5px">
 									<amp-img
-										src="./assest/Thumbs Up.webp"
+										src="https://onecare.co.in/wp-content/uploads/2022/01/Thumbs Up.webp"
 										width="1"
 										height="1"
 										layout="responsive"
@@ -1299,7 +1585,7 @@
 					<div>
 						<div class="Diabetologists-img-wrapper">
 							<amp-img
-								src="./assest/doc3.svg"
+								src="https://onecare.co.in/wp-content/uploads/2022/01/doc3.svg"
 								width="1"
 								height="1"
 								layout="responsive"
@@ -1326,7 +1612,7 @@
 							<div class="flex">
 								<div style="width: 6%; margin-right: 5px">
 									<amp-img
-										src="./assest/Thumbs Up.webp"
+										src="https://onecare.co.in/wp-content/uploads/2022/01/Thumbs Up.webp"
 										width="1"
 										height="1"
 										layout="responsive"
@@ -1355,7 +1641,7 @@
 								<div class="flex">
 									<div style="width: 60px; margin: 10px">
 										<amp-img
-											src="./assest/pink1.webp"
+											src="https://onecare.co.in/wp-content/uploads/2022/01/pink1.webp"
 											width="1"
 											height="1.78"
 											layout="responsive"
@@ -1392,7 +1678,7 @@
 								<div class="flex">
 									<div style="width: 60px; margin: 10px">
 										<amp-img
-											src="./assest/pink2.webp"
+											src="https://onecare.co.in/wp-content/uploads/2022/01/pink2.webp"
 											width="1"
 											height="1.7"
 											layout="responsive"
@@ -1428,7 +1714,7 @@
 								<div class="flex">
 									<div style="width: 60px; margin: 10px">
 										<amp-img
-											src="./assest/pink3.webp"
+											src="https://onecare.co.in/wp-content/uploads/2022/01/pink3.webp"
 											width="1"
 											height="1.7"
 											layout="responsive"
@@ -1466,7 +1752,7 @@
 								<div class="flex">
 									<div style="width: 60px; margin: 10px">
 										<amp-img
-											src="./assest/pink4.webp"
+											src="https://onecare.co.in/wp-content/uploads/2022/01/pink4.webp"
 											width="1"
 											height="1.7"
 											layout="responsive"
@@ -1499,7 +1785,7 @@
 								<div class="flex">
 									<div style="width: 60px; margin: 10px">
 										<amp-img
-											src="./assest/pink5.webp"
+											src="https://onecare.co.in/wp-content/uploads/2022/01/pink5.webp"
 											width="1"
 											height="1.7"
 											layout="responsive"
@@ -1545,7 +1831,7 @@
 							<div>
 								<div class="over-say-review-img-wrapper">
 									<amp-img
-										src="./assest/google.svg "
+										src="https://onecare.co.in/wp-content/uploads/2022/01/google.svg "
 										width="1"
 										height="1"
 										layout="responsive"
@@ -1560,7 +1846,7 @@
 									</p>
 									<div style="width: 60px; margin: 5px 0px">
 										<amp-img
-											src="./assest/stars.webp"
+											src="https://onecare.co.in/wp-content/uploads/2022/01/stars.webp"
 											width="4"
 											height="1"
 											layout="responsive"
@@ -1579,7 +1865,7 @@
 							<div>
 								<div class="over-say-review-img-wrapper">
 									<amp-img
-										src="./assest/google.svg"
+										src="https://onecare.co.in/wp-content/uploads/2022/01/google.svg"
 										width="1"
 										height="1"
 										layout="responsive"
@@ -1595,7 +1881,7 @@
 									</p>
 									<div style="width: 60px; margin: 5px 0px">
 										<amp-img
-											src="./assest/stars.webp"
+											src="https://onecare.co.in/wp-content/uploads/2022/01/stars.webp"
 											width="4"
 											height="1"
 											layout="responsive"
@@ -1614,7 +1900,7 @@
 							<div>
 								<div class="over-say-review-img-wrapper">
 									<amp-img
-										src="./assest/google.svg"
+										src="https://onecare.co.in/wp-content/uploads/2022/01/google.svg"
 										width="1"
 										height="1"
 										layout="responsive"
@@ -1629,7 +1915,7 @@
 									</p>
 									<div style="width: 60px; margin: 5px 0px">
 										<amp-img
-											src="./assest/stars.webp"
+											src="https://onecare.co.in/wp-content/uploads/2022/01/stars.webp"
 											width="4"
 											height="1"
 											layout="responsive"
@@ -1647,7 +1933,13 @@
 							</div>
 							<div>
 								<div class="over-say-review-img-wrapper">
-									<amp-img src="./assest/p.svg" width="1" height="1" layout="responsive" alt="">
+									<amp-img
+										src="https://onecare.co.in/wp-content/uploads/2022/01/p.svg"
+										width="1"
+										height="1"
+										layout="responsive"
+										alt=""
+									>
 									</amp-img>
 								</div>
 								<div class="over-say-review-detail-wrapper">
@@ -1657,7 +1949,7 @@
 									</p>
 									<div style="width: 60px; margin: 5px 0px">
 										<amp-img
-											src="./assest/stars.webp"
+											src="https://onecare.co.in/wp-content/uploads/2022/01/stars.webp"
 											width="4"
 											height="1"
 											layout="responsive"
@@ -1674,7 +1966,13 @@
 							</div>
 							<div>
 								<div class="over-say-review-img-wrapper">
-									<amp-img src="./assest/p.svg" width="1" height="1" layout="responsive" alt="">
+									<amp-img
+										src="https://onecare.co.in/wp-content/uploads/2022/01/p.svg"
+										width="1"
+										height="1"
+										layout="responsive"
+										alt=""
+									>
 									</amp-img>
 								</div>
 								<div class="over-say-review-detail-wrapper">
@@ -1684,7 +1982,7 @@
 									</p>
 									<div style="width: 60px; margin: 5px 0px">
 										<amp-img
-											src="./assest/stars.webp"
+											src="https://onecare.co.in/wp-content/uploads/2022/01/stars.webp"
 											width="4"
 											height="1"
 											layout="responsive"
@@ -1704,7 +2002,13 @@
 							</div>
 							<div>
 								<div class="over-say-review-img-wrapper">
-									<amp-img src="./assest/p.svg" width="1" height="1" layout="responsive" alt="">
+									<amp-img
+										src="https://onecare.co.in/wp-content/uploads/2022/01/p.svg"
+										width="1"
+										height="1"
+										layout="responsive"
+										alt=""
+									>
 									</amp-img>
 								</div>
 								<div class="over-say-review-detail-wrapper">
@@ -1714,7 +2018,7 @@
 									</p>
 									<div style="width: 60px; margin: 5px 0px">
 										<amp-img
-											src="./assest/stars.webp"
+											src="https://onecare.co.in/wp-content/uploads/2022/01/stars.webp"
 											width="4"
 											height="1"
 											layout="responsive"
@@ -1733,7 +2037,13 @@
 							</div>
 							<div>
 								<div class="over-say-review-img-wrapper">
-									<amp-img src="./assest/p.svg" width="1" height="1" layout="responsive" alt="">
+									<amp-img
+										src="https://onecare.co.in/wp-content/uploads/2022/01/p.svg"
+										width="1"
+										height="1"
+										layout="responsive"
+										alt=""
+									>
 									</amp-img>
 								</div>
 								<div class="over-say-review-detail-wrapper">
@@ -1743,7 +2053,7 @@
 									</p>
 									<div style="width: 60px; margin: 5px 0px">
 										<amp-img
-											src="./assest/stars.webp"
+											src="https://onecare.co.in/wp-content/uploads/2022/01/stars.webp"
 											width="4"
 											height="1"
 											layout="responsive"
@@ -1768,7 +2078,13 @@
 
 				<div>
 					<div id="map-img-wrapper">
-						<amp-img src="./assest/map.svg" width="1.5" height="1" layout="responsive" alt="logo">
+						<amp-img
+							src="https://onecare.co.in/wp-content/uploads/2022/01/map.svg"
+							width="1.5"
+							height="1"
+							layout="responsive"
+							alt="logo"
+						>
 						</amp-img>
 					</div>
 					<div>
@@ -1780,7 +2096,7 @@
 								<div class="flex1">
 									<div class="location-img-wrapper">
 										<amp-img
-											src="./assest/Location.webp"
+											src="https://onecare.co.in/wp-content/uploads/2022/01/Location.webp"
 											width="1"
 											height="1"
 											layout="responsive"
@@ -1798,7 +2114,7 @@
 								<div class="flex m-t-10">
 									<div style="width: 12%; margin-right: 5px">
 										<amp-img
-											src="./assest/Phone.webp"
+											src="https://onecare.co.in/wp-content/uploads/2022/01/Phone.webp"
 											width="1"
 											height="1"
 											layout="responsive"
@@ -1812,7 +2128,7 @@
 									<h3 style="margin: 0px 5px" class="f-s-14">4.9</h3>
 									<div style="width: 50%">
 										<amp-img
-											src="./assest/stars.webp"
+											src="https://onecare.co.in/wp-content/uploads/2022/01/stars.webp"
 											width="5"
 											height="1"
 											layout="responsive"
@@ -1825,7 +2141,7 @@
 
 							<div style="width: 500px">
 								<amp-img
-									src="./assest/Rectangle 136.webp"
+									src="https://onecare.co.in/wp-content/uploads/2022/01/Rectangle 136.webp"
 									width="1.2"
 									height="1"
 									layout="responsive"
@@ -1860,7 +2176,7 @@
 								<div class="flex1">
 									<div class="location-img-wrapper">
 										<amp-img
-											src="./assest/Location.webp"
+											src="https://onecare.co.in/wp-content/uploads/2022/01/Location.webp"
 											width="1"
 											height="1"
 											layout="responsive"
@@ -1878,7 +2194,7 @@
 								<div class="flex">
 									<div style="width: 12%; margin-right: 5px" class="m-t-10">
 										<amp-img
-											src="./assest/Phone.webp"
+											src="https://onecare.co.in/wp-content/uploads/2022/01/Phone.webp"
 											width="1"
 											height="1"
 											layout="responsive"
@@ -1892,7 +2208,7 @@
 									<h3 style="margin: 0px 5px" class="f-s-14">4.9</h3>
 									<div style="width: 50%">
 										<amp-img
-											src="./assest/stars.webp"
+											src="https://onecare.co.in/wp-content/uploads/2022/01/stars.webp"
 											width="5"
 											height="1"
 											layout="responsive"
@@ -1905,7 +2221,7 @@
 
 							<div style="width: 500px">
 								<amp-img
-									src="./assest/Rectangle 137.webp"
+									src="https://onecare.co.in/wp-content/uploads/2022/01/Rectangle 137.webp"
 									width="1.2"
 									height="1"
 									layout="responsive"
@@ -1939,7 +2255,7 @@
 								<div class="flex1">
 									<div class="location-img-wrapper">
 										<amp-img
-											src="./assest/Location.webp"
+											src="https://onecare.co.in/wp-content/uploads/2022/01/Location.webp"
 											width="1"
 											height="1"
 											layout="responsive"
@@ -1957,7 +2273,7 @@
 								<div class="flex">
 									<div style="width: 12%; margin-right: 5px" class="m-t-10">
 										<amp-img
-											src="./assest/Phone.webp"
+											src="https://onecare.co.in/wp-content/uploads/2022/01/Phone.webp"
 											width="1"
 											height="1"
 											layout="responsive"
@@ -1971,7 +2287,7 @@
 									<h3 style="margin: 0px 5px" class="f-s-14">4.9</h3>
 									<div style="width: 50%">
 										<amp-img
-											src="./assest/stars.webp"
+											src="https://onecare.co.in/wp-content/uploads/2022/01/stars.webp"
 											width="5"
 											height="1"
 											layout="responsive"
@@ -1984,7 +2300,7 @@
 
 							<div style="width: 500px">
 								<amp-img
-									src="./assest/Rectangle 145.webp"
+									src="https://onecare.co.in/wp-content/uploads/2022/01/Rectangle 145.webp"
 									width="1.2"
 									height="1"
 									layout="responsive"
@@ -2022,7 +2338,13 @@
 							</p>
 						</div>
 						<div style="margin: 0px 10px; flex: 1">
-							<amp-img src="./assest/d2.svg" width="1.3" height="1" layout="responsive" alt="logo">
+							<amp-img
+								src="https://onecare.co.in/wp-content/uploads/2022/01/d2.svg"
+								width="1.3"
+								height="1"
+								layout="responsive"
+								alt="logo"
+							>
 							</amp-img>
 						</div>
 					</div>
@@ -2059,7 +2381,7 @@
 							<div>
 								<amp-img
 									style="width: 35px"
-									src="./assest/Ok.svg"
+									src="https://onecare.co.in/wp-content/uploads/2022/01/Ok.svg"
 									width="1"
 									height="1"
 									layout="responsive"
@@ -2071,7 +2393,7 @@
 							<div>
 								<amp-img
 									style="width: 30px"
-									src="./assest/Box Important.svg"
+									src="https://onecare.co.in/wp-content/uploads/2022/01/Box Important.svg"
 									width="1.5"
 									height="1.3"
 									layout="responsive"
@@ -2093,7 +2415,7 @@
 							<div>
 								<amp-img
 									style="width: 25px"
-									src="./assest/Ok.svg"
+									src="https://onecare.co.in/wp-content/uploads/2022/01/Ok.svg"
 									width="1"
 									height="1"
 									layout="responsive"
@@ -2104,7 +2426,7 @@
 							<div>
 								<amp-img
 									style="width: 25px"
-									src="./assest/Xbox X.svg"
+									src="https://onecare.co.in/wp-content/uploads/2022/01/Xbox X.svg"
 									width="1.5"
 									height="1.3"
 									layout="responsive"
@@ -2118,7 +2440,7 @@
 							<p class="f-s-14 f-w-600">Smart & remote monitoring by <br />OneCare mobile app</p>
 							<div>
 								<amp-img
-									src="./assest/Ok.svg"
+									src="https://onecare.co.in/wp-content/uploads/2022/01/Ok.svg"
 									style="width: 25px"
 									width="1"
 									height="1"
@@ -2129,7 +2451,7 @@
 							</div>
 							<div>
 								<amp-img
-									src="./assest/Xbox X.svg"
+									src="https://onecare.co.in/wp-content/uploads/2022/01/Xbox X.svg"
 									style="width: 25px"
 									width="1.5"
 									height="1.3"
@@ -2144,7 +2466,7 @@
 							<p class="f-s-14 f-w-600">24*7 access to expert dietician</p>
 							<div>
 								<amp-img
-									src="./assest/Ok.svg"
+									src="https://onecare.co.in/wp-content/uploads/2022/01/Ok.svg"
 									style="width: 25px"
 									width="1"
 									height="1"
@@ -2155,7 +2477,7 @@
 							</div>
 							<div>
 								<amp-img
-									src="./assest/Xbox X.svg"
+									src="https://onecare.co.in/wp-content/uploads/2022/01/Xbox X.svg"
 									style="width: 25px"
 									width="1.5"
 									height="1.3"
@@ -2170,7 +2492,7 @@
 							<p class="f-s-14 f-w-600">Dedicated coach with free <br />Weekly Sessions</p>
 							<div>
 								<amp-img
-									src="./assest/Ok.svg"
+									src="https://onecare.co.in/wp-content/uploads/2022/01/Ok.svg"
 									style="width: 25px"
 									width="1"
 									height="1"
@@ -2181,7 +2503,7 @@
 							</div>
 							<div>
 								<amp-img
-									src="./assest/Xbox X.svg"
+									src="https://onecare.co.in/wp-content/uploads/2022/01/Xbox X.svg"
 									style="width: 25px"
 									width="1.5"
 									height="1.3"
@@ -2199,7 +2521,7 @@
 							</p>
 							<div>
 								<amp-img
-									src="./assest/Ok.svg"
+									src="https://onecare.co.in/wp-content/uploads/2022/01/Ok.svg"
 									style="width: 25px"
 									width="1"
 									height="1"
@@ -2210,7 +2532,7 @@
 							</div>
 							<div>
 								<amp-img
-									src="./assest/Xbox X.svg"
+									src="https://onecare.co.in/wp-content/uploads/2022/01/Xbox X.svg"
 									style="width: 25px"
 									width="1.5"
 									height="1.3"
@@ -2224,7 +2546,7 @@
 							<p class="f-s-14 f-w-600">Focus on controlling & <br />Reversing Diabetes</p>
 							<div>
 								<amp-img
-									src="./assest/Ok.svg"
+									src="https://onecare.co.in/wp-content/uploads/2022/01/Ok.svg"
 									style="width: 25px"
 									width="1"
 									height="1"
@@ -2235,7 +2557,7 @@
 							</div>
 							<div>
 								<amp-img
-									src="./assest/Xbox X.svg"
+									src="https://onecare.co.in/wp-content/uploads/2022/01/Xbox X.svg"
 									style="width: 25px"
 									width="1.5"
 									height="1.3"
@@ -2256,7 +2578,7 @@
 						<div class="marquee-item">
 							<amp-img
 								style="width: 80px; height: 35px; margin-right: 10px"
-								src="./assest/vccircle.svg"
+								src="https://onecare.co.in/wp-content/uploads/2022/01/vccircle.svg"
 								width="1"
 								height="1"
 								layout="responsive"
@@ -2268,7 +2590,7 @@
 						<div class="marquee-item">
 							<amp-img
 								style="width: 110px; height: 35px; margin-right: 10px"
-								src="./assest/logo_yourstory 1.svg"
+								src="https://onecare.co.in/wp-content/uploads/2022/01/logo_yourstory 1.svg"
 								width="1"
 								height="1"
 								layout="responsive"
@@ -2280,7 +2602,7 @@
 						<div class="marquee-item">
 							<amp-img
 								style="width: 100px; height: 35px"
-								src="./assest/EH-Logo-white 1.svg"
+								src="https://onecare.co.in/wp-content/uploads/2022/01/EH-Logo-white 1.svg"
 								width="1"
 								height="1"
 								layout="responsive"
@@ -2292,7 +2614,7 @@
 						<div class="marquee-item">
 							<amp-img
 								style="width: 100px; height: 65px"
-								src="./assest/IndianStartupNews-logo 1.svg"
+								src="https://onecare.co.in/wp-content/uploads/2022/01/IndianStartupNews-logo 1.svg"
 								width="1"
 								height="1"
 								layout="responsive"
@@ -2315,7 +2637,7 @@
 									<span>
 										<amp-img
 											style="width: 15px"
-											src="./assest/Arrow.svg"
+											src="https://onecare.co.in/wp-content/uploads/2022/01/Arrow.svg"
 											width="1"
 											height="1"
 											layout="responsive"
@@ -2344,7 +2666,7 @@
 									<span>
 										<amp-img
 											style="width: 15px"
-											src="./assest/Arrow.svg"
+											src="https://onecare.co.in/wp-content/uploads/2022/01/Arrow.svg"
 											width="1"
 											height="1"
 											layout="responsive"
@@ -2367,7 +2689,7 @@
 									<span>
 										<amp-img
 											style="width: 15px"
-											src="./assest/Arrow.svg"
+											src="https://onecare.co.in/wp-content/uploads/2022/01/Arrow.svg"
 											width="1"
 											height="1"
 											layout="responsive"
@@ -2391,7 +2713,7 @@
 									<span>
 										<amp-img
 											style="width: 15px"
-											src="./assest/Arrow.svg"
+											src="https://onecare.co.in/wp-content/uploads/2022/01/Arrow.svg"
 											width="1"
 											height="1"
 											layout="responsive"
@@ -2424,7 +2746,7 @@
 									<span>
 										<amp-img
 											style="width: 15px"
-											src="./assest/Arrow.svg"
+											src="https://onecare.co.in/wp-content/uploads/2022/01/Arrow.svg"
 											width="1"
 											height="1"
 											layout="responsive"
@@ -2490,7 +2812,7 @@
 					<div class="logo-wrapper">
 						<a href="/" class="logo">
 							<amp-img
-								src="./assest/logo.svg"
+								src="https://onecare.co.in/wp-content/uploads/2022/01/logo.svg"
 								width="3.2"
 								height="1"
 								layout="responsive"
@@ -2512,7 +2834,7 @@
 					<a href=" https://wa.me/918951893293">
 						<amp-img
 							style="width: 70px"
-							src="./assest/WhatsApp.svg"
+							src="https://onecare.co.in/wp-content/uploads/2022/01/WhatsApp.svg"
 							width="1"
 							height="1"
 							layout="responsive"
