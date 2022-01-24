@@ -830,6 +830,12 @@
 			.show {
 				display: block;
 			}
+			.error {
+				color: red;
+			}
+			.success {
+				color: green;
+			}
 		</style>
 	</head>
 
@@ -842,10 +848,11 @@
 					"errors": { "name": "", "phone": "", "consultation": "" },
 					"consultation": "online",
 					"validated": "false",
-				                "otpA":""
-				                "otpB":""
-				                "otpC":""
-				                "otpD":""
+					"otpA": "",
+					"otpB": "",
+					"otpC": "",
+					"otpD": "",
+					"errorMessage": ""
 				}
 			</script>
 		</amp-state>
@@ -1130,13 +1137,9 @@
 				<h1 class="f-w-700 f-s-24 center-txt">
 					Start your <span class="orange-txt"> personalised <br />diabetic program today!</span>
 				</h1>
-				<amp-script script="myscript" layout="container">
-					<div [text]="oneCareForm.validated"></div>
-					<section
-						id="popup"
-						class="hide"
-						[class]="oneCareForm.validated == true ? 'show' : 'hide'"
-					>
+
+				<amp-script src="https://onecare.co.in/index.js" layout="container">
+					<section id="popup" class="hide" [class]="oneCareForm.validated?'show' :'hide'">
 						<div>
 							<div class="items-start popup-wrapper">
 								<h2 class="f-36 drk-blu-txt">OTP Verification</h2>
@@ -1147,15 +1150,20 @@
 								<div class="my-30">
 									<h3 class="f-20 my-30">Enter OTP</h3>
 									<!-- <amp-script script="popup" layout="container"> -->
-									<form id="popup-form" method="post" action-xhr="#" target="_top">
+									<form
+										id="popup-form"
+										method="post"
+										action-xhr="https://onecare.co.in/wp-json/api/v1/verify-otp"
+										target="_top"
+									>
 										<input
 											type="tel"
 											on="input-debounced:AMP.setState({
-                        oneCareForm:{
-                            otpA: event.value,
-                            errors:{otp: ''}
-                        }
-                    })"
+                                                oneCareForm:{
+                                                    otpA: event.value,
+                                                    errors:{otp: ''}
+                                                }
+                                            })"
 											maxlength="1"
 											id="digit-1"
 											name="digit1"
@@ -1163,11 +1171,11 @@
 										<input
 											type="tel"
 											on="input-debounced:AMP.setState({
-                        oneCareForm:{
-                            otpB: event.value,
-                            errors:{otp: ''}
-                        }
-                    })"
+                                                oneCareForm:{
+                                                    otpB: event.value,
+                                                    errors:{otp: ''}
+                                                }
+                                            })"
 											maxlength="1"
 											id="digit-2"
 											name="digit2"
@@ -1175,11 +1183,11 @@
 										<input
 											type="tel"
 											on="input-debounced:AMP.setState({
-                        oneCareForm:{
-                            otpC: event.value,
-                            errors:{otp: ''}
-                        }
-                    })"
+                                                oneCareForm:{
+                                                    otpC: event.value,
+                                                    errors:{otp: ''}
+                                                }
+                                            })"
 											maxlength="1"
 											id="digit-3"
 											name="digit3"
@@ -1187,34 +1195,92 @@
 										<input
 											type="tel"
 											on="input-debounced:AMP.setState({
-                        oneCareForm:{
-                            otpD: event.value,
-                            errors:{otp: ''}
-                        }
-                    })"
+                                                oneCareForm:{
+                                                    otpD: event.value,
+                                                    errors:{otp: ''}
+                                                }
+                                            })"
 											maxlength="1"
 											id="digit-4"
 											name="digit4"
 										/>
+
+										<input
+											type="hidden"
+											class="inputHidden"
+											name="otp"
+											[value]="oneCareForm.otpA+''+oneCareForm.otpB+''+oneCareForm.otpC+''+oneCareForm.otpD"
+										/>
+
+										<input
+											type="hidden"
+											class="inputHidden"
+											name="name"
+											[value]="oneCareForm.name"
+										/>
+
+										<input
+											type="hidden"
+											class="inputHidden"
+											name="phone"
+											[value]="oneCareForm.phone"
+										/>
+										<input
+											type="hidden"
+											class="inputHidden"
+											name="consultation"
+											[value]="oneCareForm.consultation"
+										/>
+										<input
+											type="hidden"
+											class="inputHidden"
+											name="utm_source"
+											value="QUERY_PARAM(utm_source)"
+											data-amp-replace="QUERY_PARAM"
+										/>
+										<input
+											type="hidden"
+											class="inputHidden"
+											name="utm_medium"
+											value="QUERY_PARAM(utm_medium)"
+											data-amp-replace="QUERY_PARAM"
+										/>
+										<input
+											type="hidden"
+											class="inputHidden"
+											name="utm_campaign"
+											value="QUERY_PARAM(utm_campaign)"
+											data-amp-replace="QUERY_PARAM"
+										/>
+										<div submit-success>
+											<template type="amp-mustache">
+												<p></p>
+												{{#success}}
+												<strong class="error"> {{message}} </strong>
+												{{/success}} {{^success}}
+												<strong class="success"> OTP Verified Successfully! </strong>
+												{{/success}}
+											</template>
+										</div>
+										<div class="flex my-30">
+											<button class="button f-s-14 py-20 px-10" id="resend">Resend OTP</button>
+											<input
+												id="submit-otp"
+												style="border-radius: 6px"
+												type="submit"
+												value="Done"
+												class="brd-no mx-20 py-20 px-10 f-s-18 blue-bg"
+											/>
+										</div>
 									</form>
+
 									<!-- </amp-script> -->
 								</div>
-								<div class="flex my-30">
-									<button class="button f-s-14 py-20 px-10" id="resend">Resend OTP</button>
-									<input
-										id="submit-otp"
-										style="border-radius: 6px"
-										type="submit"
-										value="Done"
-										class="brd-no mx-20 py-20 px-10 f-s-18 blue-bg"
-									/>
-								</div>
 
-								<script id="popup" type="text/plain" target="amp-script"></script>
+								<!-- <script id="popup" type="text/plain" target="amp-script"></script> -->
 							</div>
 						</div>
 					</section>
-
 					<form id="form" method="post" action-xhr="#" target="_top">
 						<input
 							type="text"
@@ -1278,153 +1344,10 @@
 						</div>
 
 						<!-- Add [target="amp-script"] to the <script> element. -->
-
+						<strong class="error" [text]="oneCareForm.errorMessage"></strong>
 						<input class="blue-bg button" id="submit-button" value="SUBMIT" type="submit" />
 					</form>
 				</amp-script>
-				<script id="myscript" type="text/plain" target="amp-script">
-					               console.log("hi");
-					function phoneNumberCheck(phoneNumber)
-					{
-					    return true;
-					}
-
-					let btn = document.querySelector("#submit-button");
-					let resendBtn = document.querySelector("#resend");
-					let verifyOtp = document.querySelector("#submit-otp");
-					let popup = document.querySelector("#popup");
-
-					               let sendOtp =    async () => {
-					    console.log("clickeddddddddd");
-					    let name = await AMP.getState("oneCareForm.name");
-					    let phone = await AMP.getState("oneCareForm.phone");
-					    let consultation = await AMP.getState("oneCareForm.consultation");
-					    let utm_campaign = await AMP.getState("oneCareForm.utm_campaign");
-					    let utm_source = await AMP.getState("oneCareForm.utm_source");
-					    let utm_medium = await AMP.getState("oneCareForm.utm_medium");
-					    let myerrors = await AMP.getState("oneCareForm.errors");
-					                   console.log({name,phone,consultation})
-					    let errors = {
-					        name:"",
-					        phone:"",
-					    }
-					    let validated= true;
-					    if(!name)
-					    {
-					        errors.name="Invalid Name!";
-					        validated= false;
-					    }
-					    if(!phone)
-					    {
-					        errors.phone="Invalid Phone!";
-					        validated= false;
-					    }
-					    AMP.setState({
-					        oneCareForm: {
-					            validated,
-					            errors
-					        }
-					    });
-
-					    console.log({name,phone,validated,myerrors})
-					    if (validated) {
-					        fetch("https://onecare.co.in/wp-json/api/v1/send-otp", {
-					                method: "POST",
-					                mode: "cors", // no-cors, *cors, same-origin
-					                cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-					                headers: {
-					                    "Content-Type": "application/json",
-					                },
-					                redirect: "follow", // manual, *follow, error
-					                referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-					                body: JSON.stringify({phone}), // body data type must match "Content-Type" header
-					            })
-					            .then((response) => response.json())
-					                               .then((data) => {
-					                console.log("Success!")
-					                               console.log({data})
-					            })
-					    } else {
-					        AMP.setState({oneCareForm:{errors,validated:false}});
-					    }
-					};
-
-
-
-					btn.addEventListener("click",sendOtp );
-					resendBtn.addEventListener("click",sendOtp );
-
-
-
-
-					verifyOtp.addEventListener("click", async () => {
-
-					    let name = await AMP.getState("oneCareForm.name");
-					    let phone = await AMP.getState("oneCareForm.phone");
-					    let consultation = await AMP.getState("oneCareForm.consultation");
-					    let otpA = await AMP.getState("oneCareForm.otpA");
-					    let otpB = await AMP.getState("oneCareForm.otpB");
-					    let otpC = await AMP.getState("oneCareForm.otpC");
-					    let otpD = await AMP.getState("oneCareForm.otpD");
-					                   let otp = otpA+''+otpB+''+otpC+''+otpD;
-					    let utm_campaign = await AMP.getState("oneCareForm.utm_campaign");
-					    let utm_source = await AMP.getState("oneCareForm.utm_source");
-					    let utm_medium = await AMP.getState("oneCareForm.utm_medium");
-					    let myerrors = await AMP.getState("oneCareForm.errors");
-					    let errors = {
-					        name:"",
-					        phone:"",
-					    }
-					    let validated= true;
-					    if(!name)
-					    {
-					        errors.name="Invalid Name!";
-					        validated= false;
-					    }
-					    if(!phone)
-					    {
-					        errors.phone="Invalid Phone!";
-					        validated= false;
-					    }
-					    AMP.setState({
-					        oneCareForm: {
-					            validated,
-					            errors
-					        }
-					    });
-
-					    console.log({name,phone,validated,myerrors,otp})
-					    if (validated) {
-					        fetch("https://onecare.co.in/wp-json/api/v1/verify-otp", {
-					                method: "POST",
-					                mode: "cors", // no-cors, *cors, same-origin
-					                cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-					                headers: {
-					                    "Content-Type": "application/json",
-					                },
-					                redirect: "follow", // manual, *follow, error
-					                referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-					                body: JSON.stringify({
-					                                   phone,
-					                                   name,
-					                                   consultation,
-					                                   otp,
-					                                   utm_campaign,
-					                                   utm_medium,
-					                                   utm_source
-					                               }), // body data type must match "Content-Type" header
-					            })
-					            .then((response) => response.json())
-					                           .then((data) => {
-					                console.log("Success!")
-					                               console.log({data})
-					            })
-									    } else {
-					                           AMP.setState({oneCareForm:{errors,validated:false}});
-					    }
-					}
-					               );
-				</script>
 			</section>
 			<section style="background-color: white; padding: 10px" id="manage">
 				<h2 class="f-s-24 f-w-700 center-txt orange-txt">
