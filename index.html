@@ -434,11 +434,11 @@
 			margin-right: 5px;
 		}
 
-		.map-btn-wrapper>div {
+		.hov-btn-orange {
 			width: 50%;
 			color: white;
 			margin: 0px 2px;
-			padding: 10px;
+			padding: 15px;
 			text-align: center;
 			background: linear-gradient(90.13deg, #f8a622 -6.56%, #f16679 177.9%);
 			border-radius: 5px;
@@ -842,6 +842,13 @@
 		.show {
 			display: block;
 		}
+
+		.hov-btn-blue:hover{
+			background-color: #28b1dab3 ;
+		}
+		.hov-btn-orange:hover{
+			background: #f8a622b3;
+		}
 	</style>
 </head>
 
@@ -923,7 +930,7 @@
 									</p>
 									<div class="m-t-10">
 										<a href="#form-section" style="padding: 10px 20px; border-radius: 6px"
-											class="f-w-700 blue-bg f-s-i center-txt">GET STARTED
+											class="f-w-700 blue-bg hov-btn-blue f-s-i center-txt">GET STARTED
 										</a>
 									</div>
 									<div style="width: 150px;">
@@ -962,7 +969,7 @@
 									</p>
 									<div class="m-t-10">
 										<a href="#form-section" style="padding: 10px 20px; border-radius: 6px"
-											class="blue-bg f-w-700 f-s-i center-txt">GET STARTED</a>
+											class="blue-bg f-w-700 f-s-i hov-btn-blue center-txt">GET STARTED</a>
 									</div>
 								</div>
 								<div style="width: 500px; position: relative; top: 296px; margin-left: auto">
@@ -994,7 +1001,7 @@
 									</p>
 									<div class="m-t-10">
 										<a href="#form-section" style="padding: 10px 20px; border-radius: 6px"
-											class="f-w-700 blue-bg f-s-i center-txt">GET STARTED</a>
+											class="f-w-700 blue-bg hov-btn-blue f-s-i center-txt">GET STARTED</a>
 									</div>
 								</div>
 								<div style="
@@ -1027,7 +1034,7 @@
 									</p>
 									<div class="m-t-10">
 										<a href="#form-section" style="padding: 10px 20px; border-radius: 6px"
-											class="f-w-700 blue-bg f-s-i center-txt">GET STARTED</a>
+											class="f-w-700 blue-bg hov-btn-blue f-s-i center-txt">GET STARTED</a>
 									</div>
 								</div>
 								<div style="position: relative; width: 415px; top: 272px; margin-left: auto">
@@ -1121,7 +1128,7 @@
 									<div class="flex my-30">
 										<button class="button f-s-14 py-20 px-10" id="resend">Resend OTP</button>
 										<input id="submit-otp" style="border-radius: 6px" type="submit" value="Done"
-											class="brd-no mx-20 py-20 px-10 f-s-18 blue-bg" />
+											class="brd-no mx-20 py-20 px-10 f-s-18 blue-bg hov-btn-blue" />
 									</div>
 								</form>
 
@@ -1170,7 +1177,7 @@
 
 					<!-- Add [target="amp-script"] to the <script> element. -->
 					<strong class="error" [text]="oneCareForm.errorMessage"></strong>
-					<input class="blue-bg button" id="submit-button" value="SUBMIT" type="submit" />
+					<input class="blue-bg button hov-btn-blue" id="submit-button" value="SUBMIT" type="submit" />
 				</form>
 			</amp-script>
 		</section>
@@ -1726,15 +1733,14 @@
 						</div>
 					</div>
 					<div class="flex map-btn-wrapper">
-						<div>
+				
 							<a target="_blank"
 								href="https://www.google.com/maps/dir//onecare+bellandur/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x3bae13af860deb99:0x370fde6582075187?sa=X&ved=2ahUKEwj304WTlMP1AhXQUWwGHXytBxgQ9Rd6BAgrEAU"
-								class="center-txt white f-s-12 f-s-i f-w-700">GET DIRECTIONS</a>
-						</div>
-						<div>
-							<a href="#form-section" class="center-txt white f-s-10 f-s-i f-w-700">BOOK A
+								class="center-txt hov-btn-orange white f-s-14 f-s-i f-w-700">GET DIRECTIONS</a>
+						
+							<a href="#form-section" class=" hov-btn-orange center-txt white f-s-14 f-s-i f-w-700">BOOK A
 								CONSULTATION</a>
-						</div>
+					
 					</div>
 				</div>
 
@@ -1782,15 +1788,14 @@
 						</div>
 					</div>
 					<div class="flex map-btn-wrapper">
-						<div>
+						
 							<a target="_blank"
 								href="https://www.google.com/maps/dir/12.9129744,77.6421572/onecare+st+bed/@12.923979,77.6271344,15z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x3bae15339609fa05:0xe4b01212063f290e!2m2!1d77.6304605!2d12.9348738"
-								class="white f-s-12 f-s-i f-w-700 center-txt">GET DIRECTIONS</a>
-						</div>
-						<div>
-							<a href="#form-section" class="f-s-10 f-s-i f-w-700 white center-txt">BOOK A
+								class="white hov-btn-orange f-s-14 f-s-i f-w-700 center-txt">GET DIRECTIONS</a>
+						
+							<a href="#form-section" class="f-s-14 hov-btn-orange f-s-i f-w-700 white center-txt">BOOK A
 								CONSULTATION</a>
-						</div>
+						
 					</div>
 				</div>
 				<div>
@@ -1837,15 +1842,14 @@
 						</div>
 					</div>
 					<div class="flex map-btn-wrapper">
-						<div>
+						
 							<a target="_blank"
 								href="https://www.google.com/maps/place/Sattva+Superspeciality+Centre+-+Diabetes,+Thyroid+%26+Endocrinology+Clinic+%2F+Child+Care+Clinic/@12.9787463,77.6440287,15z/data=!4m5!3m4!1s0x0:0x510c519d7abd0642!8m2!3d12.9787463!4d77.6440287?sa=X&ved=2ahUKEwiBuIOAm8P1AhWyzTgGHRAMAnYQ_BJ6BAgbEAU&shorturl=1"
-								class="white f-s-12 f-s-i f-w-700 center-txt">GET DIRECTIONS</a>
-						</div>
-						<div>
-							<a href="#form-section" class="white f-s-10 f-s-i f-w-700 center-txt">BOOK A
+								class="white f-s-14 hov-btn-orange f-s-i f-w-700 center-txt">GET DIRECTIONS</a>
+					
+							<a href="#form-section" class="white hov-btn-orange f-s-14 f-s-i f-w-700 center-txt">BOOK A
 								CONSULTATION</a>
-						</div>
+					
 					</div>
 				</div>
 			</div>
@@ -1869,9 +1873,9 @@
 					</div>
 				</div>
 
-				<div class="blue-bg center-txt white"
+				<div class="blue-bg hov-btn-blue center-txt white"
 					style="padding: 10px; border-radius: 5px; width: 90%; margin: auto">
-					<a href="#form-section" class="m-t-10 white f-s-18 f-w-700">Book Free Appointment </a>
+					<a href="#form-section" class="m-t-10 white f-s-18  f-w-700">Book Free Appointment </a>
 				</div>
 			</div>
 			<div style="padding: 30px 0px">
@@ -2428,8 +2432,8 @@
 						</section>
 					</amp-accordion>
 				</article>
-				<div on="tap:hide-accordion.show,view-button.hide" id="view-button" style="text-align: center"
-					class="button blue-bg white" role="button" tabindex="0">
+				<div on="tap:hide-accordion.show,view-button.hide" id="view-button" style="text-align: center; cursor: pointer;"
+					class="button hov-btn-blue blue-bg white" role="button" tabindex="0">
 					View
 					<span style="
 								margin-left: 5px;
@@ -2484,7 +2488,7 @@
 			</div>
 
 			<div class="flex">
-				<a href="#form-section" style="padding: 15px" class="blue-bg f-s-16 f-s-i f-w-500 button">Get Your 1st
+				<a href="#form-section" style="padding: 15px" class="blue-bg hov-btn-blue f-s-16 f-s-i f-w-500 button">Get Your 1st
 					Consultation Free
 				</a>
 			</div>
