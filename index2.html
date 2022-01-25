@@ -759,8 +759,8 @@
 			}
 
 			.marquee-content {
-				align-items: center;
 				display: flex;
+				align-items: center;
 				animation: scrolling 10s linear infinite;
 			}
 
@@ -864,7 +864,7 @@
 	</head>
 
 	<body>
-		<amp-state id="oneCareForm">
+		<!-- <amp-state id="oneCareForm">
 			<script type="application/json">
 				{
 					"name": "",
@@ -879,7 +879,7 @@
 					"errorMessage": ""
 				}
 			</script>
-		</amp-state>
+		</amp-state> -->
 		<div id="container">
 			<header>
 				<nav>
@@ -921,7 +921,7 @@
 							<div
 								class="slide-wrapper2"
 								style="
-									background-image: url('	https://onecare.co.in/wp-content/uploads/2022/01/cirl2-pink.svg');
+									background-image: url('https://onecare.co.in/wp-content/uploads/2022/01/cirl2-pink.svg');
 								"
 							>
 								<div
@@ -983,6 +983,7 @@
 											alt="logo">
 										  </amp-img></div>
 									</div>
+								
 									<div style="width: 500px; position: relative; top: 180px; margin-left: auto">
 										<amp-img
 											src="https://onecare.co.in/wp-content/uploads/2022/01/1_HEoLBLidT2u4mhJ0oiDgig-2.svg"
@@ -1124,6 +1125,7 @@
 												class="f-w-700 blue-bg f-s-i center-txt"
 												>GET STARTED</a
 											>
+											
 										</div>
 									</div>
 									<div style="position: relative; width: 415px; top: 272px; margin-left: auto">
@@ -1160,7 +1162,7 @@
 				</h1>
 
 				<amp-script src="https://onecare.co.in/index.js" layout="container">
-					<section id="popup" class="hide" [class]="oneCareForm.validated=='true'?'show' :'hide'">
+					<!-- <section id="popup" class="hide" [class]="oneCareForm.validated=='true'?'show' :'hide'">
 						<div>
 							<div class="items-start popup-wrapper">
 								<h2 class="f-36 drk-blu-txt">OTP Verification</h2>
@@ -1170,7 +1172,7 @@
 
 								<div class="my-30">
 									<h3 class="f-20 my-30">Enter OTP</h3>
-									<!-- <amp-script script="popup" layout="container"> -->
+									 <amp-script script="popup" layout="container">
 									<form
 										id="popup-form"
 										method="post"
@@ -1295,19 +1297,19 @@
 										</div>
 									</form>
 
-									<!-- </amp-script> -->
+									 </amp-script>
 								</div>
 
-								<!-- <script id="popup" type="text/plain" target="amp-script"></script> -->
+								 <script id="popup" type="text/plain" target="amp-script"></script> 
 							</div>
 
 							<script id="popup" type="text/plain" target="amp-script"></script>
 						</div>
-					</section>
-					<form id="form" method="post" action-xhr="#" target="_top">
+					</section> -->
+					<form id="form" method="post" action-xhr="https://onecare.co.in/wp-json/api/v1/lead" target="_top">
 						<input
 							type="text"
-							name="name"
+							name="fullname"
 							on="input-debounced:AMP.setState({
                         oneCareForm:{
                             name: event.value,
@@ -1320,7 +1322,7 @@
 
 						<input
 							type="tel"
-							name="phone"
+							name="phoneNumber"
 							on="input-debounced:AMP.setState({
 							oneCareForm:{
 								phone: event.value,
@@ -1332,7 +1334,27 @@
 							title="Please enter a valid phone number"
 							required
 						/>
-
+						<input
+						type="hidden"
+						class="inputHidden"
+						name="utm_source"
+						value="QUERY_PARAM(utm_source)"
+						data-amp-replace="QUERY_PARAM"
+					/>
+					<input
+						type="hidden"
+						class="inputHidden"
+						name="utm_medium"
+						value="QUERY_PARAM(utm_medium)"
+						data-amp-replace="QUERY_PARAM"
+					/>
+					<input
+						type="hidden"
+						class="inputHidden"
+						name="utm_campaign"
+						value="QUERY_PARAM(utm_campaign)"
+						data-amp-replace="QUERY_PARAM"
+					/>
 						<div style="display: flex; justify-content: space-between">
 							<div style="display: flex; align-items: center">
 								<input
@@ -1343,7 +1365,7 @@
                                     consultation: event.value,
                                     errors:{consultation: ''}}
                             })"
-									name="Consultation"
+									name="consultation"
 									value="Online"
 									checked
 								/>
@@ -1359,7 +1381,7 @@
                                     consultation: event.value,
                                     errors:{consultation: ''}}
                             })"
-									name="Consultation"
+									name="consultation"
 									value="Clinical"
 								/>
 								<label style="font-size: 16px" for="Clinical">Clinical Consultation</label>
@@ -1367,8 +1389,8 @@
 						</div>
 
 						<!-- Add [target="amp-script"] to the <script> element. -->
-						<strong class="error" [text]="oneCareForm.errorMessage"></strong>
-						<input class="blue-bg button" id="submit-button" value="SUBMIT" type="submit" />
+						<!-- <strong class="error" [text]="oneCareForm.errorMessage"></strong> -->
+						<input class="blue-bg button" id="submit-button" value="Schedule A Free Appointment" type="submit" />
 					</form>
 				</amp-script>
 			</section>
@@ -2272,17 +2294,17 @@
 					</div>
 				</div>
 			</section>
+
 			<section style="padding: 0" id="travel">
 				<div style="background: linear-gradient(177.97deg, #d0f2ff 1.72%, #ffffff 98.52%)">
-					<div class="flex" style="padding: 20px ; justify-content: space-between;">
+					<div class="flex" style="padding: 20px;justify-content: space-between;">
 						<div>
 							<h2 class="drk-blu-txt f-s-18 f-w-700">Skip The Travel !</h2>
 							<p class="f-w-400 f-s-14">
 								Take Online Doctor Consultation <br />Private video consultation
 							</p>
 						</div>
-						<div style="margin: 0px 10px; flex: 1; ">
-						
+						<div style="margin: 0px 10px; flex: 1">
 							<amp-img
 								src="https://onecare.co.in/wp-content/uploads/2022/01/skipgirl.webp"
 								width="1.3"
@@ -2291,8 +2313,6 @@
 								alt="logo"
 							>
 							</amp-img>
-						
-								
 						</div>
 					</div>
 
