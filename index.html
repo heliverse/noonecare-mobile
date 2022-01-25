@@ -11,6 +11,12 @@
 		/>
 		<script
 			async
+			custom-element="amp-iframe"
+			src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js"
+		></script>
+
+		<script
+			async
 			custom-element="amp-script"
 			src="https://cdn.ampproject.org/v0/amp-script-0.1.js"
 		></script>
@@ -19,7 +25,7 @@
 			href="https://amp.dev/documentation/guides-and-tutorials/start/create/basic_markup/"
 		/>
 		<link
-			href="https://fonts.googleapis.com/css2?family=Lato&family=Libre+Baskerville&family=Libre+Caslon+Text&family=Roboto&display=swap"
+			href="https://fonts.googleapis.com/css2?family=Inter&family=Lato&family=Libre+Baskerville&family=Libre+Caslon+Text&family=Roboto&display=swap"
 			rel="stylesheet"
 		/>
 		<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1" />
@@ -397,6 +403,7 @@
 				margin: 25px auto;
 				padding: 20px;
 				border-radius: 6px;
+				box-shadow: 4px 9px 45px rgba(0, 0, 0, 0.1);
 			}
 
 			#manage-wrapper > div:nth-child(odd) {
@@ -648,11 +655,12 @@
 			.timeline ul li:nth-child(odd):after {
 				content: "";
 				position: absolute;
-				width: 290px;
+				width: 80%;
+				left: 80px;
+				right: 0px;
 				height: 1px;
 				top: 80px;
 				border-bottom: 1px solid #ffe1e6;
-				right: -175px;
 			}
 
 			.timeline ul li:nth-child(odd) .time {
@@ -674,8 +682,32 @@
 				border-radius: 18px;
 				box-shadow: 0 0 0 3px rgba(233, 33, 99, 0.3);
 			}
-
+			#FAQ section {
+				padding: 10px 20px;
+			}
+			#FAQ div#view-button {
+				margin: 10px 20px;
+			}
+			.manage-img-wrapper amp-img {
+				border-radius: 8px;
+			}
+			.map-address {
+			}
+			@media screen and (max-width: 480px) {
+				.hov-btn-orange {
+					font-size: 12px;
+					padding: 10px;
+				}
+				.map-address {
+					font-size: 13px;
+					line-height: 15px;
+				}
+			}
 			@media screen and (max-width: 420px) {
+				.hov-btn-orange {
+					font-size: 9px;
+					padding: 10px;
+				}
 				.timeline ul li:nth-child(odd) .time {
 					position: relative;
 					top: -140px;
@@ -683,7 +715,9 @@
 					right: -175px;
 					/* width: 100%; */
 				}
-
+				.timeline ul li:nth-child(odd):after {
+					display: none;
+				}
 				.timeline ul li:nth-child(odd):before {
 					content: "";
 					border-left: 1px solid #f1647b;
@@ -716,14 +750,13 @@
 				border: none;
 			}
 
-			.hide {
-				display: none;
-			}
-
 			.show {
 				display: block;
 			}
 
+			.hide {
+				display: none;
+			}
 			.error {
 				color: red;
 			}
@@ -733,14 +766,15 @@
 			}
 
 			#sticky-btn {
-				display: flex;
 				position: sticky;
 				bottom: 0;
 				z-index: 5;
 				flex-direction: column;
 				justify-content: center;
 			}
-
+			.cta {
+				display: flex;
+			}
 			#sticky-btn > div > a {
 				border-radius: 5px;
 				margin-left: 10px;
@@ -803,11 +837,15 @@
 
 			#popup {
 				z-index: 4;
-
 				top: 0;
 				position: fixed;
 				height: 100vh;
-				background: #00000040;
+				max-width: 728px;
+				background: #000000cc;
+				margin: 0 auto;
+				left: 0;
+				right: 0;
+				width: 100%;
 			}
 
 			.popup-wrapper {
@@ -853,8 +891,7 @@
 
 			#popup-form input[type="tel"] {
 				border: none;
-				border-bottom: 1px solid;
-				text-align: center;
+				text-align: left;
 			}
 
 			#popup button {
@@ -867,20 +904,183 @@
 			.brd-no {
 				border: none;
 			}
-
-			.hide {
-				display: none;
-			}
-
-			.show {
-				display: block;
-			}
-
 			.hov-btn-blue:hover {
 				background-color: #28b1dab3;
 			}
 			.hov-btn-orange:hover {
 				background: #f8a622b3;
+			}
+
+			.box {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			#partitioned {
+				padding-left: 15px;
+				letter-spacing: 42px;
+				border: 0;
+				background-image: linear-gradient(to left, black 70%, rgba(255, 255, 255, 0) 0%);
+				background-position: bottom;
+				background-size: 50px 1px;
+				background-repeat: repeat-x;
+				background-position-x: 35px;
+				width: 200px;
+				min-width: 200px;
+				font-size: 17px;
+			}
+
+			#divInner {
+				left: 0;
+				position: sticky;
+			}
+
+			#divOuter {
+				width: 190px;
+				overflow: hidden;
+			}
+			.circlecontainer {
+				height: 15px;
+				width: 105px;
+				display: flex;
+				position: relative;
+			}
+			.circle {
+				width: 15px;
+				height: 15px;
+				border-radius: 50%;
+				background-color: #28b1da;
+				animation: move 500ms linear 0ms infinite;
+				margin-right: 30px;
+			}
+
+			.circle:last-child {
+				position: absolute;
+				top: 0;
+				right: 0;
+				margin-right: 0;
+				animation: grow 500ms linear 0s infinite reverse;
+			}
+			.circle:first-child {
+				position: absolute;
+				top: 0;
+				left: 0;
+				animation: grow 500ms linear 0ms infinite;
+			}
+
+			@keyframes grow {
+				from {
+					transform: scale(0, 0);
+					opacity: 0;
+				}
+				to {
+					transform: scale(1, 1);
+					opacity: 1;
+				}
+			}
+
+			@keyframes move {
+				from {
+					transform: translateX(0px);
+				}
+				to {
+					transform: translateX(45px);
+				}
+			}
+			#impact-program {
+				background: #fff;
+			}
+			.my-timeline {
+				max-width: 500px;
+				margin: auto;
+			}
+			.t-item {
+				justify-content: center;
+				align-items: center;
+				font-family: Roboto;
+				font-style: normal;
+				font-weight: normal;
+				font-size: 12px;
+				line-height: 14px;
+				color: #000000;
+				margin: 50px 0px;
+			}
+			.t-img {
+				flex: 1;
+			}
+			.t-img {
+				max-width: 100px;
+			}
+			.t-main {
+				flex: 5;
+				padding: 0px 10px;
+			}
+			.t-up {
+				border-bottom: 1px solid #ffe1e6;
+				align-items: stretch;
+			}
+			.t-down {
+				align-items: stretch;
+			}
+			.t-line::before {
+				content: "";
+				position: relative;
+				top: -11px;
+				display: inline-block;
+				width: 10px;
+				height: 1px;
+				background-color: #f1647b;
+			}
+			/* .t-line::after{
+				content: "";
+				display: inline-block;
+				width: 10px;
+				height: 1px;
+				position: relative;
+				margin-top: auto;
+				bottom: 0;
+				background-color: #F1647B;;
+			} */
+			.t-line {
+				width: 1px;
+				height: inherit;
+				background-color: #f1647b;
+			}
+			.t-head {
+				flex: 1;
+				padding: 10px;
+				display: flex;
+				justify-content: flex-start;
+				align-items: center;
+				font-family: Roboto;
+				font-style: normal;
+				font-weight: bold;
+				font-size: 16px;
+				line-height: 19px;
+
+				color: #f1647b;
+			}
+			.t-body {
+				flex: 3;
+				padding: 10px;
+			}
+			.t-body::after {
+				content: "";
+				display: inline-block;
+				width: 10px;
+				height: 1px;
+				position: relative;
+				margin: 0px 0px -14px -11px;
+				bottom: 0;
+				background-color: #f1647b;
+			}
+			.t-body h2 {
+				font-size: 16px;
+				font-weight: 600;
+			}
+
+			.t-body p {
+				font-size: 14px;
 			}
 		</style>
 	</head>
@@ -898,7 +1098,8 @@
 					"otpB": "",
 					"otpC": "",
 					"otpD": "",
-					"errorMessage": ""
+					"errorMessage": "",
+					"otpPopup": ""
 				}
 			</script>
 		</amp-state>
@@ -909,7 +1110,7 @@
 						<a href="index.html" class="logo">
 							<amp-img
 								src="https://onecare.co.in/wp-content/uploads/2022/01/logo.svg"
-								width="3.2"
+								width="5"
 								height="1"
 								layout="responsive"
 								alt="logo"
@@ -1186,7 +1387,7 @@
 				</h1>
 
 				<amp-script src="https://onecare.co.in/index.js" layout="container">
-					<section id="popup" class="hide" [class]="oneCareForm.validated=='true'?'show' :'hide'">
+					<section id="popup" class="hide" [class]="oneCareForm.otpPopup==true?'show' :'hide'">
 						<div>
 							<div class="items-start popup-wrapper">
 								<h2 class="f-36 drk-blu-txt">OTP Verification</h2>
@@ -1203,61 +1404,22 @@
 										action-xhr="https://onecare.co.in/wp-json/api/v1/verify-otp"
 										target="_top"
 									>
-										<input
-											type="tel"
-											on="input-debounced:AMP.setState({
+										<div id="divOuter">
+											<div id="divInner">
+												<input
+													id="partitioned"
+													type="tel"
+													on="input-debounced:AMP.setState({
                                                 oneCareForm:{
-                                                    otpA: event.value,
+                                                    	otp: event.value,
                                                     errors:{otp: ''}
                                                 }
                                             })"
-											maxlength="1"
-											id="digit-1"
-											name="digit1"
-										/>
-										<input
-											type="tel"
-											on="input-debounced:AMP.setState({
-                                                oneCareForm:{
-                                                    otpB: event.value,
-                                                    errors:{otp: ''}
-                                                }
-                                            })"
-											maxlength="1"
-											id="digit-2"
-											name="digit2"
-										/>
-										<input
-											type="tel"
-											on="input-debounced:AMP.setState({
-                                                oneCareForm:{
-                                                    otpC: event.value,
-                                                    errors:{otp: ''}
-                                                }
-                                            })"
-											maxlength="1"
-											id="digit-3"
-											name="digit3"
-										/>
-										<input
-											type="tel"
-											on="input-debounced:AMP.setState({
-                                                oneCareForm:{
-                                                    otpD: event.value,
-                                                    errors:{otp: ''}
-                                                }
-                                            })"
-											maxlength="1"
-											id="digit-4"
-											name="digit4"
-										/>
-
-										<input
-											type="hidden"
-											class="inputHidden"
-											name="otp"
-											[value]="oneCareForm.otpA+''+oneCareForm.otpB+''+oneCareForm.otpC+''+oneCareForm.otpD"
-										/>
+													maxlength="4"
+													name="otp"
+												/>
+											</div>
+										</div>
 
 										<input
 											type="hidden"
@@ -1303,21 +1465,43 @@
 											<template type="amp-mustache">
 												<p></p>
 												{{#success}}
-												<strong class="error"> {{message}} </strong>
+												<strong class="error"> {{error.message}} </strong>
 												{{/success}} {{^success}}
-												<strong class="success"> OTP Verified Successfully! </strong>
+												<strong class="success"> {{error.message}} </strong>
 												{{/success}}
 											</template>
 										</div>
-										<div class="flex my-30">
-											<button class="button f-s-14 py-20 px-10" id="resend">Resend OTP</button>
+										<strong
+											id="otpTimer"
+											class="success show"
+											[class]="oneCareForm.validated=='false'?'hide' :'show'"
+										></strong>
+										<div class="flex my-30" id="popup-buttons">
+											<button class="button f-s-14 py-20 px-10"
+											id="resend">Resend OTP</button>
 											<input
 												id="submit-otp"
 												style="border-radius: 6px"
 												type="submit"
 												value="Done"
 												class="brd-no mx-20 py-20 px-10 f-s-18 blue-bg hov-btn-blue"
+												role="button"
+												tabindex="0"
 											/>
+										</div>
+							
+
+										<div submitting>
+											<div class="flex my-30">
+												<div class="box">
+													<div class="circlecontainer">
+														<span class="circle"></span>
+														<span class="circle"></span>
+														<span class="circle"></span>
+														<span class="circle"></span>
+													</div>
+												</div>
+											</div>
 										</div>
 									</form>
 
@@ -1345,7 +1529,7 @@
 						/>
 
 						<input
-							type="tel"
+							type="number"
 							name="phone"
 							on="input-debounced:AMP.setState({
 							oneCareForm:{
@@ -1395,7 +1579,7 @@
 						<!-- Add [target="amp-script"] to the <script> element. -->
 						<strong class="error" [text]="oneCareForm.errorMessage"></strong>
 						<input
-							class="blue-bg button hov-btn-blue"
+							class="blue-bg button hov-btn-blue f-s-i"
 							id="submit-button"
 							value="SUBMIT"
 							type="submit"
@@ -1413,8 +1597,8 @@
 						<div class="manage-img-wrapper">
 							<amp-img
 								src="https://onecare.co.in/wp-content/uploads/2022/01/manage1.svg"
-								width="2"
-								height="1"
+								width="3"
+								height="2"
 								layout="responsive"
 								alt="logo"
 							>
@@ -1434,8 +1618,8 @@
 						<div class="manage-img-wrapper">
 							<amp-img
 								src="https://onecare.co.in/wp-content/uploads/2022/01/manage2.svg"
-								width="2"
-								height="1"
+								width="3"
+								height="2"
 								layout="responsive"
 								alt="logo"
 							>
@@ -1455,8 +1639,8 @@
 						<div class="manage-img-wrapper">
 							<amp-img
 								src="https://onecare.co.in/wp-content/uploads/2022/01/manage3.svg"
-								width="2"
-								height="1"
+								width="3"
+								height="2"
 								layout="responsive"
 								alt="logo"
 							>
@@ -1609,193 +1793,169 @@
 				<h2 class="f-w-400 f-s-18 center-txt f-s-L">
 					5 Phase Treatment Approach for Type 2 & Pre diabetes
 				</h2>
-
-				<div class="timeline">
-					<ul>
-						<li>
-							<div class="content">
-								<div class="flex">
-									<div style="width: 60px; margin: 10px">
-										<amp-img
-											src="https://onecare.co.in/wp-content/uploads/2022/01/pink1.webp"
-											width="1"
-											height="1.78"
-											layout="responsive"
-											alt="logo"
-										>
-										</amp-img>
-									</div>
-									<div>
-										<h3 class="f-w-700 f-s-14 f-s-r pink-txt">
-											Lifestyle <br />
-											Insights
-										</h3>
-										<br />
-										<h3 class="f-w-700 f-s-14 f-s-r pink-txt">Outcome</h3>
-									</div>
+				<div class="my-timeline">
+					<div class="flex t-item">
+						<div class="t-img">
+							<amp-img
+								src="https://onecare.co.in/wp-content/uploads/2022/01/pink1.webp"
+								width="1"
+								height="1.8"
+								layout="responsive"
+								alt="one"
+							>
+							</amp-img>
+						</div>
+						<div class="t-main">
+							<div class="flex t-up">
+								<div class="t-head">Lifestyle Insights</div>
+								<div class="t-line"></div>
+								<div class="t-body">
+									<h2>Duration 0 : 1 week</h2>
+									<p>
+										We will begin the programme by getting to know you, your lifestyle, and your
+										eating habits.
+									</p>
 								</div>
 							</div>
-							<div class="time">
-								<h3 class="f-w-700 f-s-16 f-s-r">Duration 0 : 1 week</h3>
-								<h4 class="f-w-500 f-s-12 f-s-r">
-									We will begin the programme by getting to know you, your lifestyle, and your
-									eating habits.
-								</h4>
-								<br />
-								<h4 class="f-w-500 f-s-12 f-s-r">
-									2 You acquire practical knowledge about how we are going to fight your diabetes
-								</h4>
-							</div>
-						</li>
-
-						<li></li>
-						<li>
-							<div class="content">
-								<div class="flex">
-									<div style="width: 60px; margin: 10px">
-										<amp-img
-											src="https://onecare.co.in/wp-content/uploads/2022/01/pink2.webp"
-											width="1"
-											height="1.7"
-											layout="responsive"
-											alt=""
-										>
-										</amp-img>
-									</div>
-									<div>
-										<h3 class="f-w-700 f-s-14 f-s-r pink-txt">
-											A Fruitful <br />
-											Commitment
-										</h3>
-										<br />
-										<h3 class="f-w-700 f-s-14 f-s-r pink-txt">Outcome</h3>
-									</div>
+							<div class="flex t-down">
+								<div class="t-head">Outcome</div>
+								<div class="t-line"></div>
+								<div class="t-body">
+									<p>
+										You acquire practical knowledge about how we are going to fight your diabetes
+									</p>
 								</div>
 							</div>
-							<div class="time">
-								<h3 class="f-w-700 f-s-16 f-s-r">Duration 3 : 6 weeks</h3>
-								<h4 class="f-w-500 f-s-12 f-s-r">
-									We will help you replace your harmful lifestyle habits with healthy ones.
-								</h4>
-								<br />
-								<h4 class="f-w-500 f-s-12 f-s-r">
-									From weight reduction to energized physique, your body starts to enjoy a positive
-									transformation
-								</h4>
-							</div>
-						</li>
-						<li></li>
-						<li>
-							<div class="content">
-								<div class="flex">
-									<div style="width: 60px; margin: 10px">
-										<amp-img
-											src="https://onecare.co.in/wp-content/uploads/2022/01/pink3.webp"
-											width="1"
-											height="1.7"
-											layout="responsive"
-											alt="logo"
-										>
-										</amp-img>
-									</div>
-									<div>
-										<h3 class="f-w-700 f-s-14 f-s-r pink-txt">
-											Accelerated <br />
-											Recovery
-										</h3>
-										<br />
-										<h3 class="f-w-700 f-s-14 f-s-r f-s-r pink-txt">Outcome</h3>
-									</div>
+						</div>
+					</div>
+					<div class="flex t-item">
+						<div class="t-img">
+							<amp-img
+								src="https://onecare.co.in/wp-content/uploads/2022/01/pink2.webp"
+								width="1"
+								height="1.8"
+								layout="responsive"
+								alt="one"
+							>
+							</amp-img>
+						</div>
+						<div class="t-main">
+							<div class="flex t-up">
+								<div class="t-head">Lifestyle Insights</div>
+								<div class="t-line"></div>
+								<div class="t-body">
+									<h2>Duration 3 : 6 weeks</h2>
+									<p>We will help you replace your harmful lifestyle habits with healthy ones.</p>
 								</div>
 							</div>
-							<div class="time">
-								<h3 class="f-w-700 f-s-16 f-s-r">Duration 8 : 12 weeks</h3>
-								<h4 class="f-w-500 f-s-12 f-s-r">
-									Provides an extensive treatment plan to help control your <br />
-									diabetes.
-								</h4>
-								<br />
-								<h4 class="f-w-500 f-s-12 f-s-r">
-									As our detox plan lowers your blood sugar, you will notice your dependence on
-									medication starting to wane.
-								</h4>
-							</div>
-						</li>
-
-						<li></li>
-						<li>
-							<div class="content">
-								<div class="flex">
-									<div style="width: 60px; margin: 10px">
-										<amp-img
-											src="https://onecare.co.in/wp-content/uploads/2022/01/pink4.webp"
-											width="1"
-											height="1.7"
-											layout="responsive"
-											alt=""
-										>
-										</amp-img>
-									</div>
-									<div>
-										<h3 class="f-w-700 f-s-14 f-s-r pink-txt">Charting A <br />Better Life</h3>
-										<br />
-										<h3 class="f-w-700 f-s-14 f-s-r pink-txt">Outcome</h3>
-									</div>
+							<div class="flex t-down">
+								<div class="t-head">Outcome</div>
+								<div class="t-line"></div>
+								<div class="t-body">
+									<p>
+										From weight reduction to energized physique, your body starts to enjoy a
+										positive transformation
+									</p>
 								</div>
 							</div>
-							<div class="time">
-								<h3 class="f-w-700 f-s-16 f-s-r">Duration 3 : 8 weeks</h3>
-								<h4 class="f-w-500 f-s-12 f-s-r">
-									Here, you will focus on muscle building and <br />
-									strengthening.
-								</h4>
-								<br />
-								<h4 class="f-w-500 f-s-12 f-s-r">
-									Building body muscles, and a sustained feeling of absolute wellness.
-								</h4>
-							</div>
-						</li>
-						<li></li>
-						<li>
-							<div class="content">
-								<div class="flex">
-									<div style="width: 60px; margin: 10px">
-										<amp-img
-											src="https://onecare.co.in/wp-content/uploads/2022/01/pink5.webp"
-											width="1"
-											height="1.7"
-											layout="responsive"
-											alt=""
-										>
-										</amp-img>
-									</div>
-									<div>
-										<h3 class="f-w-700 f-s-14 f-s-r pink-txt">
-											Keeping It <br />
-											Going
-										</h3>
-										<br />
-										<h3 class="f-w-700 f-s-14 f-s-r pink-txt">Outcome</h3>
-									</div>
+						</div>
+					</div>
+					<div class="flex t-item">
+						<div class="t-img">
+							<amp-img
+								src="https://onecare.co.in/wp-content/uploads/2022/01/pink3.webp"
+								width="1"
+								height="1.8"
+								layout="responsive"
+								alt="one"
+							>
+							</amp-img>
+						</div>
+						<div class="t-main">
+							<div class="flex t-up">
+								<div class="t-head">Lifestyle Insights</div>
+								<div class="t-line"></div>
+								<div class="t-body">
+									<h2>Duration 8 : 12 weeks</h2>
+									<p>Provides an extensive treatment plan to help control your diabetes.</p>
 								</div>
 							</div>
-							<div class="time">
-								<h3 class="f-w-700 f-s-16 f-s-r">Duration 6 : 8 weeks</h3>
-								<h4 class="f-w-500 f-s-12 f-s-r">
-									The final phase is meant to help you adjust to your new normal and help you in
-									sustaining it.
-								</h4>
-								<br />
-								<h4 class="f-w-500 f-s-12 f-s-r">
-									With healthy habits already ingrained, you can keep diabetes under control
-									forever.
-								</h4>
+							<div class="flex t-down">
+								<div class="t-head">Outcome</div>
+								<div class="t-line"></div>
+								<div class="t-body">
+									<p>
+										As our detox plan lowers your blood sugar, you will notice your dependence on
+										medication starting to wane.
+									</p>
+								</div>
 							</div>
-						</li>
-
-						<div style="clear: both"></div>
-					</ul>
-				</div>
+						</div>
+					</div>
+					<div class="flex t-item">
+						<div class="t-img">
+							<amp-img
+								src="https://onecare.co.in/wp-content/uploads/2022/01/pink4.webp"
+								width="1"
+								height="1.8"
+								layout="responsive"
+								alt="one"
+							>
+							</amp-img>
+						</div>
+						<div class="t-main">
+							<div class="flex t-up">
+								<div class="t-head">Lifestyle Insights</div>
+								<div class="t-line"></div>
+								<div class="t-body">
+									<h2>Duration 3 : 8 weeks</h2>
+									<p>Here, you will focus on muscle building and strengthening.</p>
+								</div>
+							</div>
+							<div class="flex t-down">
+								<div class="t-head">Outcome</div>
+								<div class="t-line"></div>
+								<div class="t-body">
+									<p>Building body muscles, and a sustained feeling of absolute wellness.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="flex t-item">
+						<div class="t-img">
+							<amp-img
+								src="https://onecare.co.in/wp-content/uploads/2022/01/pink5.webp"
+								width="1"
+								height="1.8"
+								layout="responsive"
+								alt="one"
+							>
+							</amp-img>
+						</div>
+						<div class="t-main">
+							<div class="flex t-up">
+								<div class="t-head">Lifestyle Insights</div>
+								<div class="t-line"></div>
+								<div class="t-body">
+									<h2>Duration 6 : 8 weeks</h2>
+									<p>
+										The final phase is meant to help you adjust to your new normal and help you in
+										sustaining it.
+									</p>
+								</div>
+							</div>
+							<div class="flex t-down">
+								<div class="t-head">Outcome</div>
+								<div class="t-line"></div>
+								<div class="t-body">
+									<p>
+										With healthy habits already ingrained, you can keep diabetes under control
+										forever.
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
 			</section>
 			<section id="user-say" class="pink-shd">
 				<div id="user-say-wrapper">
@@ -2050,18 +2210,20 @@
 			</section>
 			<section id="location" style="background-color: white">
 				<h2 class="f-s-24 f-w-700 center-txt" style="color: #f26975">Our Locations</h2>
-				<h3 class="f-s-14 f-w-500 center-txt">We are at 3 locations in Bengaluru</h3>
+				<h3 class="f-s-14 f-w-700 center-txt">We are at 3 locations in Bengaluru</h3>
 
 				<div>
 					<div id="map-img-wrapper">
-						<amp-img
-							src="https://onecare.co.in/wp-content/uploads/2022/01/map.svg"
-							width="1.5"
-							height="1"
+						<amp-iframe
+							width="600"
+							height="400"
+							title="Google map pin on onecare Bangalore"
 							layout="responsive"
-							alt="logo"
+							sandbox="allow-scripts allow-same-origin allow-popups"
+							frameborder="0"
+							src="https://www.google.com/maps/d/u/0/embed?mid=1wnmdhULAMcTr6AaKi1cD2kikBS3DHs1s&ehbc=2E312F"
 						>
-						</amp-img>
+						</amp-iframe>
 					</div>
 					<div>
 						<h2 style="max-width: 85%; margin: 10px auto" class="orange-txt f-s-24 f-w-700">
@@ -2081,7 +2243,7 @@
 										</amp-img>
 									</div>
 									<div>
-										<p class="f-s-12 f-w-400">
+										<p class="f-s-16 f-w-400 map-address">
 											Opposit to, Sobha Quartz, 227, Ground Floor, Off, Outer Ring Rd, Green Glen
 											Layout, Bellandur, Bengaluru, Karnataka 560103
 										</p>
@@ -2158,7 +2320,7 @@
 										</amp-img>
 									</div>
 									<div>
-										<p class="f-s-12 f-w-400">
+										<p class="f-s-16 f-w-400 map-address">
 											No. 81, ST Bed Entrance, off 80 Feet Road, Koramangala 4th Block, Koramangala,
 											Bengaluru, Karnataka 560034
 										</p>
@@ -2234,7 +2396,7 @@
 										</amp-img>
 									</div>
 									<div>
-										<p class="f-s-12 f-w-400">
+										<p class="f-s-16 f-w-400 map-address">
 											505/1 1st A Cross Indiranagar 1st Stage (Near CMH Hospital/Costa Coffee),
 											Bengaluru, Karnataka 560038
 										</p>
@@ -3117,7 +3279,7 @@
 			<div style="padding: 10px">
 				<h4 class="center-txt f-s-14 f-w-400">© 2021, OneCare. All Rights Reserved</h4>
 			</div>
-			<div id="sticky-btn">
+			<div id="sticky-btn" class="cta" [class]="oneCareForm.otpPopup==true?'hide' :'show'">
 				<div style="display: flex; flex-direction: column; align-items: flex-end">
 					<a href=" https://wa.me/918951893293">
 						<amp-img
@@ -3131,13 +3293,12 @@
 						</amp-img>
 					</a>
 				</div>
-
-				<div class="flex" class="show" [class]="oneCareForm.validated=='true'?'show' :'hide'">
+				<div class="flex">
 					<a
 						href="#form-section"
-						style="padding: 15px"
-						class="blue-bg hov-btn-blue f-s-16 f-s-i f-w-500 button"
-						>Get Your 1st Consultation Free
+						style="padding: 10px"
+						class="blue-bg hov-btn-blue f-s-14 f-s-i f-w-500"
+						>Book Free Doctor Consultation
 					</a>
 				</div>
 			</div>
