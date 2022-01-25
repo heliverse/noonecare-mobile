@@ -9,7 +9,6 @@
 			name="amp-script-src"
 			content="sha384-8lnW1YiGDcUR9QY_i8kH909mWXM1I49H0X255KzdCkaErHkd5tIAWVDbe4F8g54k"
 		/>
-        <script async custom-element="amp-iframe" src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js"></script>
 		<script
 			async
 			custom-element="amp-script"
@@ -464,15 +463,15 @@
 			}
 
 			.location-img-wrapper {
-				width: 40%;
+				width: 4em;
 				margin-right: 5px;
 			}
 
-			.map-btn-wrapper > div {
+			.hov-btn-orange {
 				width: 50%;
 				color: white;
 				margin: 0px 2px;
-				padding: 10px;
+				padding: 15px;
 				text-align: center;
 				background: linear-gradient(90.13deg, #f8a622 -6.56%, #f16679 177.9%);
 				border-radius: 5px;
@@ -541,11 +540,13 @@
 				max-width: 500px;
 				margin: auto;
 			}
+
 			#view-button {
 				padding: 10px 20px;
 				background-color: #28b1da;
 				margin: 20px;
 			}
+
 			#FAQ div > div {
 				justify-content: space-between;
 
@@ -695,20 +696,13 @@
 					left: 160px;
 				}
 
-				.brd-no {
-					border: none;
+				.nav-h3 {
+					font-size: 12px;
+					line-height: 15px;
 				}
-				.hide {
-					display: none;
-				}
-				.show {
-					display: block;
-				}
-				.error {
-					color: red;
-				}
-				.success {
-					color: green;
+
+				.logo {
+					width: 120px;
 				}
 
 				.timeline ul li:nth-child(odd):before {
@@ -716,6 +710,26 @@
 
 					right: -20px;
 				}
+			}
+
+			.brd-no {
+				border: none;
+			}
+
+			.hide {
+				display: none;
+			}
+
+			.show {
+				display: block;
+			}
+
+			.error {
+				color: red;
+			}
+
+			.success {
+				color: green;
 			}
 
 			#sticky-btn {
@@ -751,7 +765,7 @@
 				background-color: white;
 				border-radius: 10px;
 				padding: 0px 10px;
-				box-shadow: 0px 20px 40px 0px #eef0f2;
+				box-shadow: 0px 10px 40px 0px #eef0f2;
 			}
 
 			.marquee {
@@ -760,6 +774,7 @@
 			}
 
 			.marquee-content {
+				align-items: center;
 				display: flex;
 				animation: scrolling 10s linear infinite;
 			}
@@ -861,54 +876,12 @@
 				display: block;
 			}
 
-
-/* loader */
-
-
-.loader {
-  display: block;
-  width: 5em;
-  margin: 10% auto;
-}
-
-@-webkit-keyframes rotate {
-  0% {
-    -webkit-transform: translateY(0%);
-  }
-  30% {
-    -webkit-transform: translateY(-0.25em);
-  }
-  50% {
-    -webkit-transform: translateY(0%);
-  }
-  70% {
-    -webkit-transform: translateY(0.25em);
-  }
-}
-.loader {
-  display: block;
-}
-.loader .inner1, .loader .inner2, .loader .inner3 {
-  display: inline-block;
-  margin: 0.125em;
-  width: 0.5em;
-  height: 0.5em;
-  border: 1px solid rgb(32, 32, 59);
-  border-radius: 1em;
-  background-color: rgb(32, 32, 59);;
-  -webkit-transform-origin: 50%;
-  -webkit-animation-duration: 0.75s;
-  -webkit-animation-name: rotate;
-  -webkit-animation-iteration-count: infinite;
-  -webkit-animation-timing-function: linear;
-}
-.loader .inner2 {
-  -webkit-animation-delay: 0.1875s;
-}
-.loader .inner3 {
-  -webkit-animation-delay: 0.375s;
-}
-
+			.hov-btn-blue:hover {
+				background-color: #28b1dab3;
+			}
+			.hov-btn-orange:hover {
+				background: #f8a622b3;
+			}
 		</style>
 	</head>
 
@@ -925,7 +898,7 @@
 					"otpB": "",
 					"otpC": "",
 					"otpD": "",
-					"errorMessage": "",
+					"errorMessage": ""
 				}
 			</script>
 		</amp-state>
@@ -945,7 +918,7 @@
 						</a>
 					</div>
 					<div>
-						<h3 style="margin: 0" class="f-s-16 f-w-500 gray-txt">
+						<h3 style="margin: 0" class="f-s-16 nav-h3 f-w-500 gray-txt">
 							A Chain<br />
 							of Smart Diabetes Clinics
 						</h3>
@@ -976,7 +949,7 @@
 								<div
 									class="slide"
 									style="
-										background-image: url('https://onecare.co.in/wp-content/uploads/2022/01/cirl2-pink.svg');
+										background-image: url('https://onecare.co.in/wp-content/uploads/2022/01/circle-1.svg');
 									"
 								>
 									<div style="z-index: 2">
@@ -988,7 +961,7 @@
 											<div class="flex" style="margin-right: 15px">
 												<amp-img
 													style="width: 20px"
-													src="https://onecare.co.in/wp-content/uploads/2022/01/Rh+.svg"
+													src="https://onecare.co.in/wp-content/uploads/2022/01/Rh.webp"
 													width="1"
 													height="1"
 													layout="responsive"
@@ -1021,9 +994,19 @@
 											<a
 												href="#form-section"
 												style="padding: 10px 20px; border-radius: 6px"
-												class="f-w-700 blue-bg f-s-i center-txt"
+												class="f-w-700 blue-bg hov-btn-blue f-s-i center-txt"
 												>GET STARTED
 											</a>
+										</div>
+										<div style="width: 150px">
+											<amp-img
+												src="https://onecare.co.in/wp-content/uploads/2022/01/star-4-5.webp"
+												width="5"
+												height="1"
+												layout="responsive"
+												alt="logo"
+											>
+											</amp-img>
 										</div>
 									</div>
 									<div style="width: 500px; position: relative; top: 180px; margin-left: auto">
@@ -1068,7 +1051,7 @@
 											<a
 												href="#form-section"
 												style="padding: 10px 20px; border-radius: 6px"
-												class="blue-bg f-w-700 f-s-i center-txt"
+												class="blue-bg f-w-700 f-s-i hov-btn-blue center-txt"
 												>GET STARTED</a
 											>
 										</div>
@@ -1096,7 +1079,7 @@
 								<div
 									class="slide"
 									style="
-										background-image: url('https://onecare.co.in/wp-content/uploads/2022/01/cirl2-pink.svg');
+										background-image: url('https://onecare.co.in/wp-content/uploads/2022/01/circle-1.svg');
 									"
 								>
 									<div style="z-index: 2">
@@ -1114,7 +1097,7 @@
 											<a
 												href="#form-section"
 												style="padding: 10px 20px; border-radius: 6px"
-												class="f-w-700 blue-bg f-s-i center-txt"
+												class="f-w-700 blue-bg hov-btn-blue f-s-i center-txt"
 												>GET STARTED</a
 											>
 										</div>
@@ -1164,7 +1147,7 @@
 											<a
 												href="#form-section"
 												style="padding: 10px 20px; border-radius: 6px"
-												class="f-w-700 blue-bg f-s-i center-txt"
+												class="f-w-700 blue-bg hov-btn-blue f-s-i center-txt"
 												>GET STARTED</a
 											>
 										</div>
@@ -1203,7 +1186,7 @@
 				</h1>
 
 				<amp-script src="https://onecare.co.in/index.js" layout="container">
-					<section id="popup" >
+					<section id="popup" class="hide" [class]="oneCareForm.validated=='true'?'show' :'hide'">
 						<div>
 							<div class="items-start popup-wrapper">
 								<h2 class="f-36 drk-blu-txt">OTP Verification</h2>
@@ -1333,17 +1316,8 @@
 												style="border-radius: 6px"
 												type="submit"
 												value="Done"
-												class="brd-no mx-20 py-20 px-10 f-s-18 blue-bg"
-
+												class="brd-no mx-20 py-20 px-10 f-s-18 blue-bg hov-btn-blue"
 											/>
-											<div submitting>
-												<div>
-													<div class="loader">
-														<span class="inner1"></span>
-														<span class="inner2"></span>
-														<span class="inner3"></span>
-													</div>
-												</div>
 										</div>
 									</form>
 
@@ -1391,15 +1365,15 @@
 									type="radio"
 									id="Online"
 									on="input-debounced:AMP.setState({
-                                    oneCareForm:{
-                                            consultation: event.value,
-                                            errors:{consultation: ''}}
-                                    })"
+                                oneCareForm:{
+                                    consultation: event.value,
+                                    errors:{consultation: ''}}
+                            })"
 									name="Consultation"
 									value="Online"
 									checked
 								/>
-								<label style="font-size: 12px" for="Online">Online Consultation</label>
+								<label style="font-size: 16px" for="Online">Online Consultation</label>
 							</div>
 
 							<div style="display: flex; align-items: center">
@@ -1407,20 +1381,25 @@
 									type="radio"
 									id="Clinical"
 									on="input-debounced:AMP.setState({
-                                    oneCareForm:{
-                                        consultation: event.value,
-                                        errors:{consultation: ''}}
-                                    })"
+                                oneCareForm:{
+                                    consultation: event.value,
+                                    errors:{consultation: ''}}
+                            })"
 									name="Consultation"
 									value="Clinical"
 								/>
-								<label style="font-size: 12px" for="Clinical">Clinical Consultation</label>
+								<label style="font-size: 16px" for="Clinical">Clinical Consultation</label>
 							</div>
 						</div>
 
 						<!-- Add [target="amp-script"] to the <script> element. -->
 						<strong class="error" [text]="oneCareForm.errorMessage"></strong>
-						<input class="blue-bg button" id="submit-button" value="SUBMIT" type="submit" />
+						<input
+							class="blue-bg button hov-btn-blue"
+							id="submit-button"
+							value="SUBMIT"
+							type="submit"
+						/>
 					</form>
 				</amp-script>
 			</section>
@@ -2075,16 +2054,14 @@
 
 				<div>
 					<div id="map-img-wrapper">
-
-                        <amp-iframe
-                        width="200"
-                        height="200"
-                        sandbox="allow-scripts allow-same-origin"
-                        layout="responsive"
-                        frameborder="0"
-                        src="https://www.google.com/maps/d/u/0/embed?mid=1wnmdhULAMcTr6AaKi1cD2kikBS3DHs1s&ehbc=2E312F"
-                      >
-                      </amp-iframe>
+						<amp-img
+							src="https://onecare.co.in/wp-content/uploads/2022/01/map.svg"
+							width="1.5"
+							height="1"
+							layout="responsive"
+							alt="logo"
+						>
+						</amp-img>
 					</div>
 					<div>
 						<h2 style="max-width: 85%; margin: 10px auto" class="orange-txt f-s-24 f-w-700">
@@ -2111,7 +2088,7 @@
 									</div>
 								</div>
 								<div class="flex m-t-10">
-									<div style="width: 12%; margin-right: 5px">
+									<div style="width: 30px; margin-right: 5px">
 										<amp-img
 											src="https://onecare.co.in/wp-content/uploads/2022/01/Phone.webp"
 											width="1"
@@ -2125,7 +2102,7 @@
 								</div>
 								<div class="flex" style="margin: 0px 25px">
 									<h3 style="margin: 0px 5px" class="f-s-14">4.9</h3>
-									<div style="width: 50%">
+									<div style="width: 4em">
 										<amp-img
 											src="https://onecare.co.in/wp-content/uploads/2022/01/stars.webp"
 											width="5"
@@ -2140,7 +2117,7 @@
 
 							<div style="width: 500px">
 								<amp-img
-									src="https://onecare.co.in/wp-content/uploads/2022/01/Rectangle-136.webp"
+									src="https://onecare.co.in/wp-content/uploads/2022/01/Rectangle-136-1-1.webp"
 									width="1.2"
 									height="1"
 									layout="responsive"
@@ -2150,19 +2127,16 @@
 							</div>
 						</div>
 						<div class="flex map-btn-wrapper">
-							<div>
-								<a
-									target="_blank"
-									href="https://www.google.com/maps/dir//onecare+bellandur/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x3bae13af860deb99:0x370fde6582075187?sa=X&ved=2ahUKEwj304WTlMP1AhXQUWwGHXytBxgQ9Rd6BAgrEAU"
-									class="center-txt white f-s-12 f-s-i f-w-700"
-									>GET DIRECTIONS</a
-								>
-							</div>
-							<div>
-								<a href="#form-section" class="center-txt white f-s-10 f-s-i f-w-700"
-									>BOOK A CONSULTATION</a
-								>
-							</div>
+							<a
+								target="_blank"
+								href="https://www.google.com/maps/dir//onecare+bellandur/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x3bae13af860deb99:0x370fde6582075187?sa=X&ved=2ahUKEwj304WTlMP1AhXQUWwGHXytBxgQ9Rd6BAgrEAU"
+								class="center-txt hov-btn-orange white f-s-14 f-s-i f-w-700"
+								>GET DIRECTIONS</a
+							>
+
+							<a href="#form-section" class="hov-btn-orange center-txt white f-s-14 f-s-i f-w-700"
+								>BOOK A CONSULTATION</a
+							>
 						</div>
 					</div>
 
@@ -2191,7 +2165,7 @@
 									</div>
 								</div>
 								<div class="flex">
-									<div style="width: 12%; margin-right: 5px" class="m-t-10">
+									<div style="width: 30px; margin-right: 5px" class="m-t-10">
 										<amp-img
 											src="https://onecare.co.in/wp-content/uploads/2022/01/Phone.webp"
 											width="1"
@@ -2205,7 +2179,7 @@
 								</div>
 								<div class="flex" style="margin: 0px 25px">
 									<h3 style="margin: 0px 5px" class="f-s-14">4.9</h3>
-									<div style="width: 50%">
+									<div style="width: 4em">
 										<amp-img
 											src="https://onecare.co.in/wp-content/uploads/2022/01/stars.webp"
 											width="5"
@@ -2220,7 +2194,7 @@
 
 							<div style="width: 500px">
 								<amp-img
-									src="https://onecare.co.in/wp-content/uploads/2022/01/Rectangle-137.webp"
+									src="https://onecare.co.in/wp-content/uploads/2022/01/Rectangle-136-1.webp"
 									width="1.2"
 									height="1"
 									layout="responsive"
@@ -2230,19 +2204,16 @@
 							</div>
 						</div>
 						<div class="flex map-btn-wrapper">
-							<div>
-								<a
-									target="_blank"
-									href="https://www.google.com/maps/dir/12.9129744,77.6421572/onecare+st+bed/@12.923979,77.6271344,15z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x3bae15339609fa05:0xe4b01212063f290e!2m2!1d77.6304605!2d12.9348738"
-									class="white f-s-12 f-s-i f-w-700 center-txt"
-									>GET DIRECTIONS</a
-								>
-							</div>
-							<div>
-								<a href="#form-section" class="f-s-10 f-s-i f-w-700 white center-txt"
-									>BOOK A CONSULTATION</a
-								>
-							</div>
+							<a
+								target="_blank"
+								href="https://www.google.com/maps/dir/12.9129744,77.6421572/onecare+st+bed/@12.923979,77.6271344,15z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x3bae15339609fa05:0xe4b01212063f290e!2m2!1d77.6304605!2d12.9348738"
+								class="white hov-btn-orange f-s-14 f-s-i f-w-700 center-txt"
+								>GET DIRECTIONS</a
+							>
+
+							<a href="#form-section" class="f-s-14 hov-btn-orange f-s-i f-w-700 white center-txt"
+								>BOOK A CONSULTATION</a
+							>
 						</div>
 					</div>
 					<div>
@@ -2270,7 +2241,7 @@
 									</div>
 								</div>
 								<div class="flex">
-									<div style="width: 12%; margin-right: 5px" class="m-t-10">
+									<div style="width: 30px; margin-right: 5px" class="m-t-10">
 										<amp-img
 											src="https://onecare.co.in/wp-content/uploads/2022/01/Phone.webp"
 											width="1"
@@ -2284,7 +2255,7 @@
 								</div>
 								<div style="margin: 0px 25px" class="flex">
 									<h3 style="margin: 0px 5px" class="f-s-14">4.9</h3>
-									<div style="width: 50%">
+									<div style="width: 4em">
 										<amp-img
 											src="https://onecare.co.in/wp-content/uploads/2022/01/stars.webp"
 											width="5"
@@ -2299,7 +2270,7 @@
 
 							<div style="width: 500px">
 								<amp-img
-									src="https://onecare.co.in/wp-content/uploads/2022/01/Rectangle-145.webp"
+									src="https://onecare.co.in/wp-content/uploads/2022/01/Rectangle-136-_2_.webp"
 									width="1.2"
 									height="1"
 									layout="responsive"
@@ -2309,27 +2280,23 @@
 							</div>
 						</div>
 						<div class="flex map-btn-wrapper">
-							<div>
-								<a
-									target="_blank"
-									href="https://www.google.com/maps/place/Sattva+Superspeciality+Centre+-+Diabetes,+Thyroid+%26+Endocrinology+Clinic+%2F+Child+Care+Clinic/@12.9787463,77.6440287,15z/data=!4m5!3m4!1s0x0:0x510c519d7abd0642!8m2!3d12.9787463!4d77.6440287?sa=X&ved=2ahUKEwiBuIOAm8P1AhWyzTgGHRAMAnYQ_BJ6BAgbEAU&shorturl=1"
-									class="white f-s-12 f-s-i f-w-700 center-txt"
-									>GET DIRECTIONS</a
-								>
-							</div>
-							<div>
-								<a href="#form-section" class="white f-s-10 f-s-i f-w-700 center-txt"
-									>BOOK A CONSULTATION</a
-								>
-							</div>
+							<a
+								target="_blank"
+								href="https://www.google.com/maps/place/Sattva+Superspeciality+Centre+-+Diabetes,+Thyroid+%26+Endocrinology+Clinic+%2F+Child+Care+Clinic/@12.9787463,77.6440287,15z/data=!4m5!3m4!1s0x0:0x510c519d7abd0642!8m2!3d12.9787463!4d77.6440287?sa=X&ved=2ahUKEwiBuIOAm8P1AhWyzTgGHRAMAnYQ_BJ6BAgbEAU&shorturl=1"
+								class="white f-s-14 hov-btn-orange f-s-i f-w-700 center-txt"
+								>GET DIRECTIONS</a
+							>
+
+							<a href="#form-section" class="white hov-btn-orange f-s-14 f-s-i f-w-700 center-txt"
+								>BOOK A CONSULTATION</a
+							>
 						</div>
 					</div>
 				</div>
 			</section>
-
 			<section style="padding: 0" id="travel">
 				<div style="background: linear-gradient(177.97deg, #d0f2ff 1.72%, #ffffff 98.52%)">
-					<div class="flex" style="padding: 20px">
+					<div class="flex" style="padding: 20px; justify-content: space-between">
 						<div>
 							<h2 class="drk-blu-txt f-s-18 f-w-700">Skip The Travel !</h2>
 							<p class="f-w-400 f-s-14">
@@ -2338,7 +2305,7 @@
 						</div>
 						<div style="margin: 0px 10px; flex: 1">
 							<amp-img
-								src="https://onecare.co.in/wp-content/uploads/2022/01/d2.svg"
+								src="https://onecare.co.in/wp-content/uploads/2022/01/skipgirl.webp"
 								width="1.3"
 								height="1"
 								layout="responsive"
@@ -2349,7 +2316,7 @@
 					</div>
 
 					<div
-						class="blue-bg center-txt white"
+						class="blue-bg hov-btn-blue center-txt white"
 						style="padding: 10px; border-radius: 5px; width: 90%; margin: auto"
 					>
 						<a href="#form-section" class="m-t-10 white f-s-18 f-w-700">Book Free Appointment </a>
@@ -2612,8 +2579,8 @@
 
 						<div class="marquee-item">
 							<amp-img
-								style="width: 100px; height: 65px"
-								src="https://onecare.co.in/wp-content/uploads/2022/01/IndianStartupNews-logo-1.svg"
+								style="width: 250px; height: 65px"
+								src="https://onecare.co.in/wp-content/uploads/2022/01/IndianStartupNews-logo-1-1.webp"
 								width="1"
 								height="1"
 								layout="responsive"
@@ -2766,7 +2733,7 @@
 						</section>
 					</amp-accordion>
 
-					<div id="hide-accordion" hidden>
+					<article id="hide-accordion" hidden>
 						<amp-accordion disable-session-states id="prop-accordion2" class="prop-accordion">
 							<section>
 								<h2 class="amp-accordion__header">
@@ -3090,12 +3057,12 @@
 								</div>
 							</section>
 						</amp-accordion>
-					</div>
+					</article>
 					<div
 						on="tap:hide-accordion.show,view-button.hide"
 						id="view-button"
-						style="text-align: center"
-						class="button blue-bg white"
+						style="text-align: center; cursor: pointer"
+						class="button hov-btn-blue blue-bg white"
 						role="button"
 						tabindex="0"
 					>
@@ -3165,8 +3132,11 @@
 					</a>
 				</div>
 
-				<div class="flex" class=''>
-					<a href="#form-section" style="padding: 15px" class="blue-bg f-s-16 f-s-i f-w-500 button"
+				<div class="flex" class="hide" [class]="oneCareForm.validated=='true'?'show' :'hide'">
+					<a
+						href="#form-section"
+						style="padding: 15px"
+						class="blue-bg hov-btn-blue f-s-16 f-s-i f-w-500 button"
 						>Get Your 1st Consultation Free
 					</a>
 				</div>
