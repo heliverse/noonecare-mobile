@@ -9,6 +9,7 @@
 			name="amp-script-src"
 			content="sha384-8lnW1YiGDcUR9QY_i8kH909mWXM1I49H0X255KzdCkaErHkd5tIAWVDbe4F8g54k"
 		/>
+        <script async custom-element="amp-iframe" src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js"></script>
 		<script
 			async
 			custom-element="amp-script"
@@ -859,6 +860,55 @@
 			.show {
 				display: block;
 			}
+
+
+/* loader */
+
+
+.loader {
+  display: block;
+  width: 5em;
+  margin: 10% auto;
+}
+
+@-webkit-keyframes rotate {
+  0% {
+    -webkit-transform: translateY(0%);
+  }
+  30% {
+    -webkit-transform: translateY(-0.25em);
+  }
+  50% {
+    -webkit-transform: translateY(0%);
+  }
+  70% {
+    -webkit-transform: translateY(0.25em);
+  }
+}
+.loader {
+  display: block;
+}
+.loader .inner1, .loader .inner2, .loader .inner3 {
+  display: inline-block;
+  margin: 0.125em;
+  width: 0.5em;
+  height: 0.5em;
+  border: 1px solid rgb(32, 32, 59);
+  border-radius: 1em;
+  background-color: rgb(32, 32, 59);;
+  -webkit-transform-origin: 50%;
+  -webkit-animation-duration: 0.75s;
+  -webkit-animation-name: rotate;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+}
+.loader .inner2 {
+  -webkit-animation-delay: 0.1875s;
+}
+.loader .inner3 {
+  -webkit-animation-delay: 0.375s;
+}
+
 		</style>
 	</head>
 
@@ -875,7 +925,7 @@
 					"otpB": "",
 					"otpC": "",
 					"otpD": "",
-					"errorMessage": ""
+					"errorMessage": "",
 				}
 			</script>
 		</amp-state>
@@ -1153,7 +1203,7 @@
 				</h1>
 
 				<amp-script src="https://onecare.co.in/index.js" layout="container">
-					<section id="popup" class="hide" [class]="oneCareForm.validated=='true'?'show' :'hide'">
+					<section id="popup" >
 						<div>
 							<div class="items-start popup-wrapper">
 								<h2 class="f-36 drk-blu-txt">OTP Verification</h2>
@@ -1284,7 +1334,16 @@
 												type="submit"
 												value="Done"
 												class="brd-no mx-20 py-20 px-10 f-s-18 blue-bg"
+
 											/>
+											<div submitting>
+												<div>
+													<div class="loader">
+														<span class="inner1"></span>
+														<span class="inner2"></span>
+														<span class="inner3"></span>
+													</div>
+												</div>
 										</div>
 									</form>
 
@@ -1332,10 +1391,10 @@
 									type="radio"
 									id="Online"
 									on="input-debounced:AMP.setState({
-                                oneCareForm:{
-                                    consultation: event.value,
-                                    errors:{consultation: ''}}
-                            })"
+                                    oneCareForm:{
+                                            consultation: event.value,
+                                            errors:{consultation: ''}}
+                                    })"
 									name="Consultation"
 									value="Online"
 									checked
@@ -1348,10 +1407,10 @@
 									type="radio"
 									id="Clinical"
 									on="input-debounced:AMP.setState({
-                                oneCareForm:{
-                                    consultation: event.value,
-                                    errors:{consultation: ''}}
-                            })"
+                                    oneCareForm:{
+                                        consultation: event.value,
+                                        errors:{consultation: ''}}
+                                    })"
 									name="Consultation"
 									value="Clinical"
 								/>
@@ -2016,14 +2075,16 @@
 
 				<div>
 					<div id="map-img-wrapper">
-						<amp-img
-							src="https://onecare.co.in/wp-content/uploads/2022/01/map.svg"
-							width="1.5"
-							height="1"
-							layout="responsive"
-							alt="logo"
-						>
-						</amp-img>
+
+                        <amp-iframe
+                        width="200"
+                        height="200"
+                        sandbox="allow-scripts allow-same-origin"
+                        layout="responsive"
+                        frameborder="0"
+                        src="https://www.google.com/maps/d/u/0/embed?mid=1wnmdhULAMcTr6AaKi1cD2kikBS3DHs1s&ehbc=2E312F"
+                      >
+                      </amp-iframe>
 					</div>
 					<div>
 						<h2 style="max-width: 85%; margin: 10px auto" class="orange-txt f-s-24 f-w-700">
@@ -3104,7 +3165,7 @@
 					</a>
 				</div>
 
-				<div class="flex">
+				<div class="flex" class=''>
 					<a href="#form-section" style="padding: 15px" class="blue-bg f-s-16 f-s-i f-w-500 button"
 						>Get Your 1st Consultation Free
 					</a>
